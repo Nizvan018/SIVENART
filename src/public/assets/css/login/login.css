@@ -12,7 +12,6 @@ body{
 
 /* ELEMENTOS REUTILIZABLES */
 input[type="text"], input[type="password"]{
-    color: gray;
     height: 36px;
     width: 99%;
     padding-left: 14px;
@@ -20,11 +19,10 @@ input[type="text"], input[type="password"]{
     border-radius: 36px;
     border: none;
     outline: none;  
-    background-color: #e3f2fd;
     transition: 0.2s;
 }
 input[type="text"]:focus, input[type="password"]:focus{
-    box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.08);
+    box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.06);
     width: 100%;
 }
 button{
@@ -35,24 +33,19 @@ button{
     margin-top: 14px;
     border-radius: 36px;
     border: none;
-    background-color: #42a5f5;
     transition: 0.2s;
-
+    cursor: pointer;
 }
 button:hover{
-    background-color: #1e88e5;
-    padding: 0 16px;
-    cursor: pointer;
+    background-color: var(#00acc1); /* darker-blue */
 }
 a{
     font-size: 12px;
     text-decoration: none;
-    color: gray;
 }
 .w-80{
     width: 80%;
 }
-
 .d-flex{
     display: flex;
 }
@@ -64,12 +57,6 @@ a{
 }
 .center-y{
     align-items: center;
-}
-.color-blue{
-    color: #42a5f5;
-}
-.color-white{
-    color: white;
 }
 
 /* ELEMENTOS ESPECÍFICOS */
@@ -92,6 +79,7 @@ a{
     background-color: white;
 }
 .tarjeta-blur{
+    padding: 16px;
     background: rgba(200, 200, 200, 0.3);
     backdrop-filter: blur(16px);
 }

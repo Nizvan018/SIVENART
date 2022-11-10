@@ -1,0 +1,41 @@
+*{
+    font-family: 'Roboto';
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+nav{
+    height: 100px;
+}
+a{
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.blur-nav{
+    height: 100%;
+    width: 100%;
+    padding: 12px 0;
+    backdrop-filter: blur(3px);
+}
+.opaque-nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    height: 100%;
+    width: 100%;
+    background: rgba(179, 179, 179, 0.5);
+}
+.nav-webname{
+    font-size: 30px;
+    font-weight: 600;
+}
+.nav-webname::after{
+    content: '';
+    left: 20%;
+    height: 100%;
+    width: 2px;
+    background-color: white;
+}
