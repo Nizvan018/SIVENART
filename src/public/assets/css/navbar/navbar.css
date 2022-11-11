@@ -1,16 +1,20 @@
-*{
-    font-family: 'Roboto';
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+header{
+    z-index: 1000;
+    width: 100%;
+    position: fixed;
 }
-
 nav{
     height: 100px;
 }
-a{
+nav a{
     font-size: 14px;
     text-decoration: none;
+}
+div.main-content{
+    position: absolute;
+    top: 100px;
+    width: 100%;
+    height: calc(100vh - 100px);
 }
 
 .blur-nav{
@@ -28,14 +32,25 @@ a{
     width: 100%;
     background: rgba(179, 179, 179, 0.5);
 }
+.nav-container{
+    height: 100%;
+}
 .nav-webname{
     font-size: 30px;
     font-weight: 600;
 }
-.nav-webname::after{
+.nav-button{
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+.nav-button:hover{
+    background: rgba(185, 185, 185, 0.6);
+}
+/* .nav-webname::after{
     content: '';
     left: 20%;
     height: 100%;
     width: 2px;
     background-color: white;
-}
+} */

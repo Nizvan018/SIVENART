@@ -1,0 +1,53 @@
+*{
+    font-family: 'Roboto';
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* COMPONENTS POSITION */
+.d-flex{
+    display: flex;
+}
+.f-column{
+    flex-direction: column;
+}
+.f-space-betwen{
+    justify-content: space-between;
+}
+.center-x{
+    justify-content: center;
+}
+.center-y{
+    align-items: center;
+}
+.right-x{
+    justify-content: end;
+}
+
+/* PADDINGS */
+.pr-10{
+    padding-right: 10px;
+}
+
+/* MARGIN */
+.mb-10{
+    margin-bottom: 10px;
+}
+
+/* SIZES */
+.w-80{
+    width: 80%;
+}
+.w-50{
+    width: 50%;
+}
+.w-30{
+    width: 30%;
+}
+.w-25{
+    width: 25%;
+}
+.w-20{
+    width: 20%;
+}
