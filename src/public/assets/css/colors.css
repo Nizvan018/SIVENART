@@ -2,8 +2,13 @@
     --main-blue: #00BCD4;
     --light-blue: #E0F7FA;
     --darker-blue: #00acc1;
+
     --light-gray: #9E9E9E;
     --main-gray: #757575;
+
+    --sand: #f5f5f5;
+    
+    --pink: #ec407a;
 }
 
 /* COLORS */
@@ -25,6 +30,9 @@
 .color-white{
     color: white;
 }
+.color-pink{
+    color: var(--pink);
+}
 
 /* BACKGROUNDS */
 .bg-main-blue{
@@ -44,4 +52,10 @@
 }
 .bg-white{
     background-color: white;
+}
+.bg-sand{
+    background-color: var(--sand);
+}
+.bg-pink{
+    background-color: var(--pink);
 }

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/colors.css">
     <link rel="stylesheet" href="/assets/css/navbar/navbar.css">
-    <link rel="stylesheet" href="/assets/css/login/login.css">
+    <link rel="stylesheet" href="/assets/css/register/register_usuario.css">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,13 +23,19 @@
         <%- include('../navbar') %> 
     </header>
 
-    <div class="main-content">
-        <section class="w-100">
-            <form action="">
-                <h1 class="color-main-blue">Datos generales</h1>
+    <div class="main-content bg-sand">
+        <section class="w-100 d-flex center-x">
+            <form class="m-16 bg-white" action="">
+                <h1 class="color-pink mb-10">Datos generales</h1>
                 <div class="d-flex">
-                    <input class="bg-light-blue" type="text" placeholder="Nombre">
-                    <input class="bg-light-blue" type="text" placeholder="Apellidos">
+                    <div class="row">
+                        <input class="col-2 bg-sand" type="text" placeholder="Correo">
+                        <input class="col-2 bg-sand" type="text" placeholder="Teléfono">
+                    </div>
+                    <div class="row">
+                        <input class="col-2 bg-sand" type="text" placeholder="Contraseña">
+                        <input class="col-2 bg-sand" type="text" placeholder="Nombre completo">
+                    </div>
                 </div>
             </form>
         </section>
