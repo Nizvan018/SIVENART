@@ -25,7 +25,7 @@
 
     <div class="main-content bg-sand">
         <section class="w-100 d-flex center-x">
-            <form class="m-16 bg-white" action="">
+            <form class="m-16 bg-white" action="/register/createUser" method="post">
                 <!-- Sección para los datos generales -->
                 <h1 class="color-pink mb-10">Datos generales</h1>
                 <div class="d-flex f-wrap">
@@ -38,7 +38,7 @@
                         <input id="nombre" name="nombre" class="col-2 bg-sand" type="text" placeholder="Nombre">
                     </div>
                     <div class="row">
-                        <input id="p_apellido" name="p_apellido_" class="col-2 bg-sand" type="text" placeholder="Primer apellido">
+                        <input id="p_apellido" name="p_apellido" class="col-2 bg-sand" type="text" placeholder="Primer apellido">
                         <input id="s_apellido" name="s_apellido" class="col-2 bg-sand" type="text" placeholder="Segundo apellido">
                     </div>
                     <!-- Botones para la selección -->
@@ -46,6 +46,7 @@
                     <div class="d-flex center-x w-100">
                         <button type="button" id="btn_administrador" class="bg-main-blue mr-10">Administrador</button>
                         <button type="button" id="btn_artesano" class="bg-medium-blue color-darker-blue">Artesano</button>
+                        <input type="text" hidden name="tipo" id="tipo" value="administrador">
                     </div>
                 </div>
 
