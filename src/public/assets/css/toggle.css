@@ -1,0 +1,58 @@
+.field-group{
+    width: 400px;
+    position: relative;
+    background: #919191;
+    border-radius: 50px;
+    padding-right: 200px;
+    text-align: center;
+    font-size: 2em;
+    color: #ffffff;
+}
+.field-group::before{
+    content: attr(field-data);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    pointer-events: none;
+}
+.checkbox-field{
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    opacity: 0;
+}
+.checkbox-label{
+    display: block;
+    padding: 10px 0;
+    position: relative;
+}
+.checkbox-label::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    background: #0ac744;
+    transform: translateX(0);
+    transition: 0.3s linear;
+}
+.checkbox-label span{
+    position: relative;
+}
+.checkbox-field:checked + .checkbox-label::before{
+    transform: translateX(200px);
+}
