@@ -30,40 +30,29 @@
                 <h1 class="color-pink mb-10">Datos generales</h1>
                 <div class="d-flex f-wrap">
                     <div class="row">
-                        <input class="col-2 bg-sand" type="text" placeholder="Correo">
-                        <input class="col-2 bg-sand" type="text" placeholder="Teléfono">
+                        <input id="email" class="col-2 bg-sand" type="text" placeholder="Correo">
+                        <input id="telefono" class="col-2 bg-sand" type="text" placeholder="Teléfono">
                     </div>
                     <div class="row">
-                        <input class="col-2 bg-sand" type="text" placeholder="Contraseña">
-                        <input class="col-2 bg-sand" type="text" placeholder="Nombre">
+                        <input id="password" class="col-2 bg-sand" type="password" placeholder="Contraseña">
+                        <input id="nombre" class="col-2 bg-sand" type="text" placeholder="Nombre">
+                    </div>
+                    <!-- Botones para la selección -->
+                    <p class="mt-10 d-flex center-x w-100 color-light-gray font-md">Seleccione el tipo de usuario que desea registrar:</p>
+                    <div class="d-flex center-x w-100">
+                        <button type="button" id="btn_administrador" class="bg-main-blue mr-10">Administrador</button>
+                        <button type="button" id="btn_artesano" class="bg-medium-blue color-darker-blue">Artesano</button>
                     </div>
                 </div>
 
                 <!-- Sección para los administradores -->
-                <h1 class="color-pink mt-20 mb-10">Administrador</h1>
-                <div class="d-flex f-wrap">
-                    <div class="row">
-                        <input class="col-2 bg-sand" type="text" placeholder="Primer apellido">
-                        <input class="col-2 bg-sand" type="text" placeholder="Segundo apellido">
-                    </div>
-                    <div class="row">
-                        <input type="file">
-                    </div>
+                <div id="seccion_administrador">
+                    <%- include('./register_administrador_part') %> 
                 </div>
 
                 <!-- Sección para el artesano -->
-                <h1 class="color-pink mt-20 mb-10">Artesano</h1>
-                <div class="d-flex f-wrap">
-                    <div class="row">
-                        <input class="col-2 bg-sand" type="text" placeholder="Primer apellido">
-                        <input class="col-2 bg-sand" type="text" placeholder="Segundo apellido">
-                    </div>
-                    <div class="row">
-                        <input class="col-2 bg-sand" type="text" placeholder="Puesto">
-                    </div>
-                    <div class="row">
-                        <input type="file">
-                    </div>
+                <div id="seccion_artesano">
+                    <%- include('./register_artesano_part') %> 
                 </div>
 
                 <!-- Sección para los botones -->
@@ -73,5 +62,8 @@
             </form>
         </section>
     </div>
+
+    <!-- Scripts -->
+    <script src="/assets/js/register/register_usuario.js"></script>
 </body>
 </html>

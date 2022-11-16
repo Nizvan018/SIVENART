@@ -5,6 +5,19 @@
     margin: 0;
 }
 
+.font-sm{
+    font-size: 10px;
+}
+.font-md{
+    font-size: 14px;
+}
+.font-lg{
+    font-size: 20px;
+}
+.font-xl{
+    font-size: 24px;
+}
+
 /* COMPONENTS POSITION */
 .d-flex{
     display: flex;

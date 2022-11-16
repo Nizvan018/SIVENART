@@ -1,5 +1,6 @@
 :root{
     --main-blue: #00BCD4;
+    --medium-blue: #c8f4fa;
     --light-blue: #E0F7FA;
     --darker-blue: #00acc1;
 
@@ -14,6 +15,9 @@
 /* COLORS */
 .color-main-blue{
     color: var(--main-blue);
+}
+.color-medium-blue{
+    color: var(--medium-blue);
 }
 .color-light-blue{
     color: var(--light-blue);
@@ -37,6 +41,9 @@
 /* BACKGROUNDS */
 .bg-main-blue{
     background-color: var(--main-blue);
+}
+.bg-medium-blue{
+    background-color: var(--medium-blue);
 }
 .bg-light-blue{
     background-color: var(--light-blue);
