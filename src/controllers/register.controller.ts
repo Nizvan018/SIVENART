@@ -2,9 +2,18 @@ import { Response, Request } from 'express';
 import {User} from "../models/usuario"
 import {administrador} from "../models/administrador"
 import {artesano} from "../models/artesano"
+
+/** Funciones para el renderizado de vistas: */
+
 export function register_usuario(req:Request, res:Response){
     res.render('register/register_usuario');
 }
+
+export function register_taller(req:Request, res:Response){
+    res.render('register/register_taller');
+}
+
+/** Funciones aparte: */
 
 export const createUser = async(req:Request, res:Response)=>{
     const{tipo,avatar_artesano,avatar_administrador,puesto,id_taller,email,telefono,password,nombre,p_apellido,s_apellido} =req.body;

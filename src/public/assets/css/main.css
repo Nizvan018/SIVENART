@@ -56,6 +56,9 @@
 .mt-20{
     margin-top: 20px;
 }
+.mt-30{
+    margin-top: 30px;
+}
 .mr-10{
     margin-right: 10px;
 }
@@ -64,6 +67,9 @@
 }
 .mb-10{
     margin-bottom: 10px;
+}
+.mb-20{
+    margin-bottom: 20px;
 }
 
 /* SIZES */
@@ -98,4 +104,14 @@
 }
 .col-2{
     max-width: calc((100% / 2) - 5px);
+    width: calc((100% / 2) - 5px);
+}
+
+/* HALF IMAGE BG */
+.half-image-bg{
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    background-attachment: scroll; 
+    background-position: center -400px; 
+    background-size: 100% 100%;
 }
