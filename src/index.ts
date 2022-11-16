@@ -9,7 +9,7 @@ import './models/taller.ts'
 
 async function main() {
     sequelize
-        .sync({ force: true })
+        .sync({ alter: true })
         .then(() => {})
         .catch((err) => console.log(err));
 
