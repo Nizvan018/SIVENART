@@ -2,6 +2,7 @@ const btn_administrador = document.getElementById('btn_administrador');
 const btn_artesano = document.getElementById('btn_artesano');
 const seccion_administrador = document.getElementById('seccion_administrador');
 const seccion_artesano = document.getElementById('seccion_artesano');
+const tipo_user =document.getElementById("tipo");
 
 seccion_artesano.hidden = true;
 
@@ -17,6 +18,7 @@ btn_administrador.addEventListener('click', () => {
     //Habilita administrador:
     seccion_administrador.hidden = false;
     seccion_artesano.hidden = true;
+    tipo_user.setAttribute("value","administrador");
 });
 
 btn_artesano.addEventListener('click', () => {
@@ -31,4 +33,5 @@ btn_artesano.addEventListener('click', () => {
     // Habilita artesano:
     seccion_administrador.hidden = true;
     seccion_artesano.hidden = false;
+    tipo_user.setAttribute("value","artesano");
 });
