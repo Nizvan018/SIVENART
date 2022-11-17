@@ -2,7 +2,7 @@ import { DataType, DataTypes } from "sequelize";
 import { sequelize } from "../database/database.config";
 
 export const administrador = sequelize.define('administrador', {
-    idUser: {
+    idClientEsp: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         allowNull: false,

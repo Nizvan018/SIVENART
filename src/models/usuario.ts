@@ -1,10 +1,9 @@
-import { DataType, DataTypes } from "sequelize";
+import { DataTypes } from "sequelize";
 import { sequelize } from "../database/database.config";
-import { administrador } from "./administrador"
-import { artesano } from "./artesano"
+import { persona } from "./persona"
 
-export const User = sequelize.define('usuario', {
-    idUser: {
+export const usuario = sequelize.define('usuario', {
+    id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
@@ -13,47 +12,26 @@ export const User = sequelize.define('usuario', {
     email: {
         type: DataTypes.STRING,
         allowNull: false,
-    },
-    telefono: {
-        type: DataTypes.STRING,
+        unique: true,
     },
     password: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    nombre: {
+    rol: {
         type: DataTypes.STRING,
-        allowNull: false,
-    },
-    primer_apellido: {
-        type:DataTypes.STRING,
-        allowNull: false,
-    },
-    segundo_apellido: {
-        type:DataTypes.STRING,
         allowNull: false,
     }
 }, {
     timestamps: false,
 });
 
-User.hasOne(administrador, {
+usuario.hasOne(persona, {
     foreignKey: 'idUser',
-    sourceKey: 'idUser'
+    sourceKey: 'id'
 });
 
-User.hasOne(artesano, {
+persona.belongsTo(usuario, {
     foreignKey: 'idUser',
-    sourceKey: 'idUser'
-})
-
-administrador.belongsTo(User,{
-    foreignKey: 'idUser',
-    targetKey: 'idUser'
-}
-);
-
-artesano.belongsTo(User, {
-    foreignKey: 'idUser',
-    targetKey: 'idUser'
-})
+    targetKey: 'id',
+});
