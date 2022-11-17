@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/colors.css">
     <link rel="stylesheet" href="/assets/css/navbar/navbar.css">
-    <link rel="stylesheet" href="/assets/css/register/register_usuario.css">
+    <link rel="stylesheet" href="/assets/css/register/register_form.css">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,49 +18,55 @@
 
     <title>SIVENART</title>
 </head>
-<body>
+<body class="bg-sand">
     <header>
         <%- include('../navbar') %> 
     </header>
 
-    <div class="main-content bg-sand half-image-bg" style="background-image: url('/img/fondo.png');">
-        <section class="w-100 d-flex center-x">
+    <div class="half-image-bg" style="background-image: url('/img/fondo-registro.png');"></div>
+
+    <div class="main-content">
+        <section class="w-100 d-flex f-column center-x center-y p-10">
+            <div class="mt-10 bg-white card d-flex f-column center-x">
+                <h1 class="font-xl color-main-blue mr-10">REGISTRAR USUARIOS</h1>
+                <p class="mt-10 color-main-gray">Rellene la información solicitada a continuación para registrar nuevos usuarios en el sistema</p>
+            </div>
             <form class="m-16 bg-white" action="/register/createUser" method="post">
                 <!-- Sección para los datos generales -->
-                <h1 class="color-pink mb-20">Datos generales</h1>
+                <h2 class="color-pink mb-20">Datos generales</h2>
                 <div class="d-flex f-wrap">
                     <div class="row">
-                        <div class="d-flex f-column col-2">
+                        <div class="d-flex f-column col-6">
                             <label class="font-md color-main-gray mb-10" for="email">Correo electrónico:</label>
                             <input id="email" name="email" class="bg-sand" type="text" placeholder="ejemplo@gmail.com">
                         </div>
-                        <div class="d-flex f-column col-2">
-                            <label class="font-md color-main-gray mb-10" for="telefono">Teléfono:</label>
-                            <input id="telefono" name="telefono" class="bg-sand" type="text" placeholder="951 123 4567">
-                        </div>
-                    </div>
-                    <div class="row mt-10">
-                        <div class="d-flex f-column col-2">
+                        <div class="d-flex f-column col-6">
                             <label class="font-md color-main-gray mb-10" for="password">Contraseña:</label>
                             <input id="password" name="password" class="bg-sand" type="password" placeholder="pass123">
                         </div>
-                        <div class="d-flex f-column col-2">
+                    </div>
+                    <div class="row mt-10">
+                        <div class="d-flex f-column col-6">
+                            <label class="font-md color-main-gray mb-10" for="telefono">Teléfono:</label>
+                            <input id="telefono" name="telefono" class="bg-sand" type="text" placeholder="951 123 4567">
+                        </div>
+                        <div class="d-flex f-column col-6">
                             <label class="font-md color-main-gray mb-10" for="nombre">Nombre/s:</label>
                             <input id="nombre" name="nombre" class="bg-sand" type="text" placeholder="Escriba su/s nombre/s">
                         </div>
                     </div>
                     <div class="row mt-10">
-                        <div class="d-flex f-column col-2">
+                        <div class="d-flex f-column col-6">
                             <label class="font-md color-main-gray mb-10" for="p_apellido">Primer apellido:</label>
                             <input id="p_apellido" name="p_apellido" class="bg-sand" type="text" placeholder="Escriba su apellido paterno">
                         </div>
-                        <div class="d-flex f-column col-2">
+                        <div class="d-flex f-column col-6">
                             <label class="font-md color-main-gray mb-10" for="s_apellido">Segundo apellido:</label>
                             <input id="s_apellido" name="s_apellido" class="bg-sand" type="text" placeholder="Escriba su apellido paterno">
                         </div>
                     </div>
                     <!-- Botones para la selección -->
-                    <p class="mt-10 d-flex center-x w-100 color-light-gray font-md">Seleccione el tipo de usuario que desea registrar:</p>
+                    <p class="mt-10 d-flex center-x w-100 color-light-gray font-md">Seleccione el tipo de usuario (rol) que desea registrar:</p>
                     <div class="d-flex center-x w-100">
                         <button type="button" id="btn_administrador" class="bg-main-blue mr-10">Administrador</button>
                         <button type="button" id="btn_artesano" class="bg-medium-blue color-darker-blue">Artesano</button>
