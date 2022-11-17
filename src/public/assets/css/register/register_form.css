@@ -19,6 +19,20 @@ input[type="text"]:focus, input[type="password"]:focus{
     box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.06);
     width: 100%;
 }
+textarea{
+    font-size: 13px;
+    width: 99%;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 0 0 14px;
+    outline: none;
+    resize: none;
+    transition: 0.2s;
+}
+textarea:focus{
+    box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.06);
+    width: 100%;
+}
 button{
     font-weight: 500;
     color: white;
@@ -33,4 +47,28 @@ button{
 button:hover{
     color: white;
     background-color: #00acc1; /* darker-blue */
+}
+input[type="file"]{
+    opacity: 0;
+    width: 99%;
+    height: 36px;
+    display: inline-block;
+    cursor: pointer;
+}
+.file-input{
+    position: relative;
+    display: inline-block;
+    border-radius: 8px;
+}
+.file-input::before{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    content: 'Seleccionar archivo';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
 }
