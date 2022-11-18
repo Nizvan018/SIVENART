@@ -3,6 +3,8 @@ import express, {Application} from 'express';
 import path from 'path';
 import dotenv from 'dotenv';
 
+import expressSession from "./middlewares/express-session.middleware";
+
 dotenv.config();
 
 // Importing routes:
@@ -21,6 +23,7 @@ app.set('views', path.join(__dirname, 'views'));
 // app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded( { extended: false } ));
+app.use(expressSession);
 
 // Routes:
 app.use('/', indexRoutes);

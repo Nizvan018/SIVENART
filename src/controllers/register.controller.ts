@@ -4,6 +4,7 @@ import {administrador} from "../models/administrador"
 import {artesano} from "../models/artesano"
 import { persona } from '../models/persona';
 import {transporter} from '../config/mailer'
+import { hashPassword } from '../libraries/bycript.library';
 
 /** Funciones para el renderizado de vistas: */
 
@@ -21,7 +22,7 @@ export const createUser = async(req:Request, res:Response)=>{
     const{tipo,avatar_artesano,avatar_administrador,puesto,email,telefono,password,nombre,p_apellido,s_apellido} =req.body;
     const newUser = await usuario.create({
         email,
-        password,
+        password : hashPassword(password),
         rol: tipo,
         nombre,
         primer_apellido: p_apellido,
@@ -57,7 +58,7 @@ export const createUser = async(req:Request, res:Response)=>{
         html: `
         <h1>Hola ${nombre} ${p_apellido}, Haz sido añadido a SIVENART</h1>
         <p>Ahora formas parte de la web, las credenciales para tu usuario son las siguientes</p>
-        <p>Email: ${email}</p><br>
+        <p>Email: ${email}</p>
         <p>Contraseña: ${password}</p>
         `
       });
