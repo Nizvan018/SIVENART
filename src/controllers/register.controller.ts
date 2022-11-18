@@ -1,7 +1,9 @@
 import { Response, Request } from 'express';
-import {User} from "../models/usuario"
+import {usuario} from "../models/usuario"
 import {administrador} from "../models/administrador"
 import {artesano} from "../models/artesano"
+import { persona } from '../models/persona';
+import {transporter} from '../config/mailer'
 
 /** Funciones para el renderizado de vistas: */
 
@@ -16,31 +18,49 @@ export function register_taller(req:Request, res:Response){
 /** Funciones aparte: */
 
 export const createUser = async(req:Request, res:Response)=>{
-    const{tipo,avatar_artesano,avatar_administrador,puesto,id_taller,email,telefono,password,nombre,p_apellido,s_apellido} =req.body;
-    const newUser = await User.create({
+    const{tipo,avatar_artesano,avatar_administrador,puesto,email,telefono,password,nombre,p_apellido,s_apellido} =req.body;
+    const newUser = await usuario.create({
         email,
-        telefono,
         password,
+        rol: tipo,
         nombre,
         primer_apellido: p_apellido,
         segundo_apellido: s_apellido
-    })
+    });
+
+    const newPerson = await persona.create({
+        telefono,
+        nombre,
+        primer_apellido: p_apellido,
+        segundo_apellido: s_apellido,
+        idUser:newUser.getDataValue("id"),
+    });
+
     if (tipo=="administrador") {
-        
         const newAdmin = await administrador.create({
-            idUser:newUser.getDataValue("idUser"),
+            idClientEsp:newPerson.getDataValue("idClient"),
             avatar:avatar_administrador
         })
-        console.log(newAdmin);
     }else if (tipo=="artesano") {
         const newArtesano = await artesano.create({
-            idUser:newUser.getDataValue("idUser"),
+            idClientEsp:newPerson.getDataValue("idClient"),
             avatar:avatar_artesano,
             puesto,
-            idtaller:id_taller
         })
-        console.log(newArtesano);
     }
-    console.log(newUser);
+
+    //Send a email to the new user
+    await transporter.sendMail({
+        from: '"Sivenart" <sivenart.notifications@gmail.com>', // sender address
+        to: email, // list of receivers
+        subject: "Nuevo registro SEVENART", // Subject line
+        html: `
+        <h1>Hola ${nombre} ${p_apellido}, Haz sido añadido a SIVENART</h1>
+        <p>Ahora formas parte de la web, las credenciales para tu usuario son las siguientes</p>
+        <p>Email: ${email}</p><br>
+        <p>Contraseña: ${password}</p>
+        `
+      });
+
     res.send("Creando usuario");
 }
