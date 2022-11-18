@@ -1,5 +1,4 @@
 import { DataTypes } from "sequelize";
-import { classToInvokable } from "sequelize/types/utils";
 import { sequelize } from "../database/database.config";
 import { artesano } from "./artesano";
 
@@ -48,14 +47,4 @@ export const taller = sequelize.define('taller', {
     },
 }, {
     timestamps: false,
-})
-
-taller.hasMany(artesano, {
-    foreignKey: 'idtaller',
-    sourceKey: 'idTaller'
-});
-
-artesano.belongsTo(taller, {
-    foreignKey: 'idtaller',
-    targetKey: 'idTaller'
 })

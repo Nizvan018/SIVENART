@@ -1,15 +1,16 @@
 import app from './app';
 import { sequelize } from './database/database.config';
 
-import './models/usuario.ts'
+import './models/usuario'
 import './models/administrador.ts'
 import './models/artesano.ts'
 import './models/taller.ts'
+import './models/persona'
 
 
 async function main() {
     sequelize
-        .sync({ force: true })
+        .sync({ alter: true })
         .then(() => {})
         .catch((err) => console.log(err));
 
