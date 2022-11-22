@@ -6,6 +6,7 @@
 
     --light-gray: #9E9E9E;
     --main-gray: #757575;
+    --darker-gray: #363a43;
 
     --sand: #f5f5f5;
     --darker-sand: #e4e2e2;
@@ -63,6 +64,9 @@
 }
 .bg-main-gray{
     background-color: var(--main-gray);
+}
+.bg-darker-gray{
+    background-color: var(--darker-gray);
 }
 .bg-white{
     background-color: white;
