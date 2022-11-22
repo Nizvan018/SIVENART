@@ -11,6 +11,7 @@ dotenv.config();
 import indexRoutes from './routes/index.router';
 import loginRoutes from './routes/login.router';
 import registerRoutes from './routes/register.router';
+import productsRoutes from './routes/products.router';
 
 const app:Application = express();
 
@@ -29,6 +30,7 @@ app.use(expressSession);
 app.use('/', indexRoutes);
 app.use('/login', loginRoutes);
 app.use('/register', registerRoutes);
+app.use('/products', productsRoutes);
 
 // Static files:
 app.use(express.static(path.join(__dirname, 'public')));
