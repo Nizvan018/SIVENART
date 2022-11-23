@@ -32,7 +32,7 @@
                 <h1 class="font-xl color-main-blue mr-10">REGISTRAR TALLERES</h1>
                 <p class="mt-10 color-main-gray">Rellene la información solicitada a continuación para registrar nuevos talleres en el sistema</p>
             </div>
-            <form class="m-16 bg-white" action="/register/createUser" method="post">
+            <form class="m-16 bg-white" action="/register/createTaller" method="post">
                 <!-- Sección para los datos generales -->
                 <h2 class="color-pink mb-20">Datos generales</h2>
                 <div class="d-flex f-wrap">
@@ -43,9 +43,9 @@
                     <div class="row">
                         <div class="d-flex f-column col-6">
                             <input id="nombre" name="nombre" class="bg-sand" type="text" placeholder="Escriba el nombre del taller">
-                            <label class="font-md color-main-gray mb-10" for="avatar_administrador">Seleccione la imagen para su avatar:</label>
+                            <label class="font-md color-main-gray mb-10" for="avatar_taller">Seleccione la imagen para su avatar:</label>
                             <div class="file-input font-md bg-main-blue color-white">
-                                <input id="avatar_administrador" name="avatar_administrador" type="file">
+                                <input id="avatar_taller" name="avatar_taller" type="file">
                             </div>
                         </div>
                         <div class="d-flex col-6 h-100">
@@ -94,8 +94,8 @@
                 <div class="d-flex f-wrap">
                     <div class="row">
                         <div class="d-flex f-column w-100">
-                            <label class="font-md color-main-gray mb-10" for="colonia">Artesano:</label>
-                            <input id="colonia" name="colonia" class="bg-sand" type="text" placeholder="Escriba el ID del artesano que pertenece a este taller">
+                            <label class="font-md color-main-gray mb-10" for="idArtesano">Artesano:</label>
+                            <input id="idArtesano" name="idArtesano" class="bg-sand" type="text" placeholder="Escriba el ID del artesano que pertenece a este taller">
                         </div>
                     </div>
                 </div>
