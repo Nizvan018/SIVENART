@@ -1,9 +1,10 @@
 import { Response, Request } from 'express';
-import {usuario} from "../models/usuario"
-import {administrador} from "../models/administrador"
-import {artesano} from "../models/artesano"
+import { usuario } from "../models/usuario"
+import { taller } from "../models/taller"
+import { administrador } from "../models/administrador"
+import { artesano } from "../models/artesano"
 import { persona } from '../models/persona';
-import {transporter} from '../config/mailer'
+import { transporter } from '../config/mailer'
 import { hashPassword } from '../libraries/bycript.library';
 
 /** Funciones para el renderizado de vistas: */
@@ -18,6 +19,23 @@ export function register_taller(req:Request, res:Response){
 
 /** Funciones aparte: */
 
+export const createTaller = async(req:Request, res:Response)=>{
+    const{nombre,avatar_taller,descripcion,calle,numero,colonia,codigo_postal,localidad,entidad,idArtesano} = req.body;
+    const newTaller = await taller.create({
+        nombre,
+        avatar: avatar_taller,
+        descripcion,
+        calle,
+        numero,
+        colonia,
+        codigo_postal,
+        localidad,
+        entidad,
+        idArtesano
+    });
+    res.send("Creando taller");
+}
+
 export const createUser = async(req:Request, res:Response)=>{
     const{tipo,avatar_artesano,avatar_administrador,puesto,email,telefono,password,nombre,p_apellido,s_apellido} =req.body;
     const newUser = await usuario.create({
@@ -28,6 +46,7 @@ export const createUser = async(req:Request, res:Response)=>{
         primer_apellido: p_apellido,
         segundo_apellido: s_apellido
     });
+
 
     const newPerson = await persona.create({
         telefono,
@@ -46,7 +65,7 @@ export const createUser = async(req:Request, res:Response)=>{
         const newArtesano = await artesano.create({
             idClientEsp:newPerson.getDataValue("idClient"),
             avatar:avatar_artesano,
-            puesto,
+            puesto
         })
     }
 
