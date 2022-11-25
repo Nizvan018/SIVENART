@@ -1,6 +1,7 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../database/database.config";
 import { artesano } from "./artesano";
+import { producto } from "./producto";
 
 export const taller = sequelize.define('taller', {
     idTaller: {
@@ -48,3 +49,13 @@ export const taller = sequelize.define('taller', {
 }, {
     timestamps: false,
 })
+
+taller.hasMany(producto, {
+    foreignKey: 'idTaller',
+    sourceKey: 'idTaller'
+});
+
+producto.belongsTo(taller, {
+    foreignKey: 'idTaller',
+    targetKey: 'idTaller'
+});
