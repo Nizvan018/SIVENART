@@ -42,60 +42,36 @@
                     </div>
                     <div class="row">
                         <div class="d-flex f-column col-6">
-                            <input id="nombre" name="nombre" class="bg-sand" type="text" placeholder="Escriba el nombre del taller">
-                            <label class="font-md color-main-gray mb-10" for="avatar_administrador">Seleccione la imagen para su avatar:</label>
+                            <input id="nombre" name="nombre" class="bg-sand" type="text" placeholder="Escriba el nombre del producto">
+                            <label class="font-md color-main-gray mb-10" for="imagen">Seleccione la imagen para su producto:</label>
                             <div class="file-input font-md bg-main-blue color-white">
-                                <input id="avatar_administrador" name="avatar_administrador" type="file">
+                                <input id="imagen" name="imagen" type="file">
                             </div>
                         </div>
                         <div class="d-flex col-6 h-100">
-                            <textarea class="bg-sand" name="descripcion" id="descripcion" placeholder="Escriba una pequeña descripción del taller"></textarea>
+                            <textarea class="bg-sand" name="descripcion" id="descripcion" placeholder="Escriba una pequeña descripción de su producto"></textarea>
                         </div>
                     </div>
-                </div>
-
-                <!-- Sección para la ubicación -->
-                <h2 class="color-pink mt-20 mb-20">Dirección</h2>
-                <div class="d-flex f-wrap">
-                    <div class="row">
+                    <div class="row mt-10">
                         <div class="d-flex f-column col-6">
-                            <label class="font-md color-main-gray mb-10" for="localidad">Localidad:</label>
-                            <input id="localidad" name="localidad" class="bg-sand" type="text" placeholder="Escriba la localidad donde se encuentra el taller">
+                            <label class="font-md color-main-gray mb-10" for="stock">Stock:</label>
+                            <input id="stock" name="stock" class="bg-sand" type="text" placeholder="Escriba la cantidad de productos disponibles">
                         </div>
                         <div class="d-flex f-column col-6">
-                            <label class="font-md color-main-gray mb-10" for="nombre">Entidad:</label>
-                            <input id="entidad" name="entidad" class="bg-sand" type="text" placeholder="Escriba la entidad donde se encuentra el taller">
+                            <label class="font-md color-main-gray mb-10" for="precio">Precio:</label>
+                            <input id="precio" name="precio" class="bg-sand" type="number" placeholder="Escriba el precio del producto">
                         </div>
                     </div>
                     <div class="row">
-                        <div class="d-flex f-column col-8">
-                            <label class="font-md color-main-gray mb-10" for="calle">Calle:</label>
-                            <input id="calle" name="calle" class="bg-sand" type="text" placeholder="Escriba la calle en donde se encuentra el taller">
-                        </div>
-                        <div class="d-flex f-column col-4">
-                            <label class="font-md color-main-gray mb-10" for="nombre">Número:</label>
-                            <input id="numero" name="numero" class="bg-sand" type="text" placeholder="Escriba el No. del taller">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="d-flex f-column col-8">
-                            <label class="font-md color-main-gray mb-10" for="colonia">Colonia:</label>
-                            <input id="colonia" name="colonia" class="bg-sand" type="text" placeholder="Escriba la colonia donde se encuentra el taller">
-                        </div>
-                        <div class="d-flex f-column col-4">
-                            <label class="font-md color-main-gray mb-10" for="codigo_postal">Código postal:</label>
-                            <input id="codigo_postal" name="codigo_postal" class="bg-sand" type="text" placeholder="Escriba el código postal del taller">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sección para el personal -->
-                <h2 class="color-pink mt-20 mb-20">Personal</h2>
-                <div class="d-flex f-wrap">
-                    <div class="row">
-                        <div class="d-flex f-column w-100">
-                            <label class="font-md color-main-gray mb-10" for="colonia">Artesano:</label>
-                            <input id="colonia" name="colonia" class="bg-sand" type="text" placeholder="Escriba el ID del artesano que pertenece a este taller">
+                        <div class="d-flex f-column col-12">
+                            <label class="font-md color-main-gray mb-10" for="categoria">Categoría:</label>
+                            <select id="categoria" name="categoria" class="bg-sand color-main-gray">
+                                <option selected hidden>Seleccione la categoría de su producto</option>
+                                <option value="textil">Textil</option>
+                                <option value="madera">Madera</option>
+                                <option value="ceramica">Cerámica</option>
+                                <option value="otros">Otros</option>
+                            </select>
                         </div>
                     </div>
                 </div>

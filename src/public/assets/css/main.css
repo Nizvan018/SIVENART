@@ -26,6 +26,9 @@ div.card{
 }
 
 /* COMPONENTS POSITION */
+.d-none{
+    display: none;
+}
 .d-flex{
     display: flex;
 }
@@ -111,6 +114,10 @@ div.card{
     justify-content: space-between;
     align-items: center;
     width: 100%;
+}
+.col-12{
+    max-width: calc(100% - 5px);
+    width: calc(100% - 5px);
 }
 .col-8{
     max-width: calc(((100% /12)*8) - 5px);
