@@ -61,9 +61,13 @@ button{
     transition: 0.2s;
     cursor: pointer;
 }
-button:hover{
+button.bg-main-blue:hover{
     color: white;
     background-color: #00acc1; /* darker-blue */
+}
+button.bg-pink:hover{
+    color: white;
+    background-color: #d81b60; /* darker-pink */
 }
 input[type="file"]{
     opacity: 0;

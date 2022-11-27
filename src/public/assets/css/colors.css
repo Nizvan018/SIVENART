@@ -12,6 +12,7 @@
     --darker-sand: #e4e2e2;
 
     --pink: #ec407a;
+    --darker-pink: #d81b60;
 }
 
 /* COLORS */
@@ -44,6 +45,9 @@
 }
 .color-pink{
     color: var(--pink);
+}
+.color-darker-pink{
+    color: var(--darker-pink);
 }
 
 /* BACKGROUNDS */
@@ -79,4 +83,7 @@
 }
 .bg-pink{
     background-color: var(--pink);
+}
+.bg-darker-pink{
+    background-color: var(--darker-pink);
 }
