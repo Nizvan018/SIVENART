@@ -32,7 +32,7 @@
                 <h1 class="font-xl color-main-blue mr-10">REGISTRAR PRODUCTO</h1>
                 <p class="mt-10 color-main-gray">Rellene la información solicitada a continuación para registrar nuevos productos a su taller</p>
             </div>
-            <form class="m-16 bg-white" action="/register/createUser" method="post">
+            <form class="m-16 bg-white" action="/products/createProduct" method="post" enctype="multipart/form-data">
                 <!-- Sección para los datos generales -->
                 <h2 class="color-pink mb-20">Datos generales</h2>
                 <div class="d-flex f-wrap">
@@ -59,7 +59,7 @@
                         </div>
                         <div class="d-flex f-column col-6">
                             <label class="font-md color-main-gray mb-10" for="precio">Precio:</label>
-                            <input id="precio" name="precio" class="bg-sand" type="number" placeholder="Escriba el precio del producto">
+                            <input id="precio" name="precio" class="bg-sand" type="number" step="any" placeholder="Escriba el precio del producto">
                         </div>
                     </div>
                     <div class="row">
