@@ -24,6 +24,7 @@
         <%- include('../navbar') %> 
     </header>
 
+
     <div class="half-image-bg" style="background-image: url('/img/fondo-registro.png');"></div>
 
     <div class="transparent main-content">
@@ -42,82 +43,30 @@
 
             <!-- Sección para los productos -->
             <div class="d-flex f-wrap w-100 m-16 max-w-1200">
-                <div class="row mb-20 scroll-x">
-                    <div class="d-flex f-column bg-white card col-4 mr-10 min-w-200">
-                        <p class="color-pink font-w-500 mb-10">Nombre del producto</p>
-                        <div class="card bg-main-gray" style="height: 200px;"></div>
-                        <p class="mt-10 color-main-gray font-md">Pequeña descripción del producto</p>
-                        <div class="row">
-                            <button class="bg-main-blue col-6">$14.07 MXN</button>
-                            <div class="mt-10 col-6 d-flex right-x center-y font-md color-main-gray">Stock:<span class="color-main-blue ml-10">15</span></div>
+
+                
+
+                <% let cont = 0; %>
+                <% productos.forEach(producto => { %>
+                    <% if(cont == 0) { %> 
+                        <div class="row-no-space mb-20 scroll-x">
+                    <% } %>
+                    <% if(cont === 3){ %>
+                        <div class="d-flex f-column bg-white card-p col-3 min-w-200">
+                    <% } else{ %>
+                        <div class="d-flex f-column bg-white card-p col-3 mr-10 min-w-200">
+                    <% } %>
+                    <p class="color-pink font-w-500 mb-10"><%- producto.nombre %></p>
+                        <img src="/img/productos/<%-producto.foto%>" class="card" style="height: 200px;">
+                        <p class="mt-10 color-main-gray font-md"><%- producto.descripcion %></p>
+                        <div class="row-no-align end-y h-100-p">
+                            <button class="bg-main-blue col-6 font-sm">$<%- producto.precio %>MXN</button>
+                            <div class="mt-10 pb-10 col-6 d-flex right-x center-y font-md color-main-gray">Stock:<span class="color-main-blue ml-10"><%- producto.stock %></span></div>
                         </div>
                     </div>
-                    <div class="d-flex f-column bg-white card col-4 mr-10 min-w-200">
-                        <p class="color-pink font-w-500 mb-10">Nombre del producto</p>
-                        <div class="card bg-main-gray" style="height: 200px;"></div>
-                        <p class="mt-10 color-main-gray font-md">Pequeña descripción del producto</p>
-                        <div class="row">
-                            <button class="bg-main-blue col-6">$14.07 MXN</button>
-                            <div class="mt-10 col-6 d-flex right-x center-y font-md color-main-gray">Stock:<span class="color-main-blue ml-10">15</span></div>
-                        </div>
-                    </div>
-                    <div class="d-flex f-column bg-white card col-4 mr-10 min-w-200">
-                        <p class="color-pink font-w-500 mb-10">Nombre del producto</p>
-                        <div class="card bg-main-gray" style="height: 200px;"></div>
-                        <p class="mt-10 color-main-gray font-md">Pequeña descripción del producto</p>
-                        <div class="row">
-                            <button class="bg-main-blue col-6">$14.07 MXN</button>
-                            <div class="mt-10 col-6 d-flex right-x center-y font-md color-main-gray">Stock:<span class="color-main-blue ml-10">15</span></div>
-                        </div>
-                    </div>
-                    <div class="d-flex f-column bg-white card col-4 min-w-200">
-                        <p class="color-pink font-w-500 mb-10">Nombre del producto</p>
-                        <div class="card bg-main-gray" style="height: 200px;"></div>
-                        <p class="mt-10 color-main-gray font-md">Pequeña descripción del producto</p>
-                        <div class="row">
-                            <button class="bg-main-blue col-6">$14.07 MXN</button>
-                            <div class="mt-10 col-6 d-flex right-x center-y font-md color-main-gray">Stock:<span class="color-main-blue ml-10">15</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-20 scroll-x">
-                    <div class="d-flex f-column bg-white card col-4 mr-10 min-w-200">
-                        <p class="color-pink font-w-500 mb-10">Nombre del producto</p>
-                        <div class="card bg-main-gray" style="height: 200px;"></div>
-                        <p class="mt-10 color-main-gray font-md">Pequeña descripción del producto</p>
-                        <div class="row">
-                            <button class="bg-main-blue col-6">$14.07 MXN</button>
-                            <div class="mt-10 col-6 d-flex right-x center-y font-md color-main-gray">Stock:<span class="color-main-blue ml-10">15</span></div>
-                        </div>
-                    </div>
-                    <div class="d-flex f-column bg-white card col-4 mr-10 min-w-200">
-                        <p class="color-pink font-w-500 mb-10">Nombre del producto</p>
-                        <div class="card bg-main-gray" style="height: 200px;"></div>
-                        <p class="mt-10 color-main-gray font-md">Pequeña descripción del producto</p>
-                        <div class="row">
-                            <button class="bg-main-blue col-6">$14.07 MXN</button>
-                            <div class="mt-10 col-6 d-flex right-x center-y font-md color-main-gray">Stock:<span class="color-main-blue ml-10">15</span></div>
-                        </div>
-                    </div>
-                    <div class="d-flex f-column bg-white card col-4 mr-10 min-w-200">
-                        <p class="color-pink font-w-500 mb-10">Nombre del producto</p>
-                        <div class="card bg-main-gray" style="height: 200px;"></div>
-                        <p class="mt-10 color-main-gray font-md">Pequeña descripción del producto</p>
-                        <div class="row">
-                            <button class="bg-main-blue col-6">$14.07 MXN</button>
-                            <div class="mt-10 col-6 d-flex right-x center-y font-md color-main-gray">Stock:<span class="color-main-blue ml-10">15</span></div>
-                        </div>
-                    </div>
-                    <div class="d-flex f-column bg-white card col-4 min-w-200">
-                        <p class="color-pink font-w-500 mb-10">Nombre del producto</p>
-                        <div class="card bg-main-gray" style="height: 200px;"></div>
-                        <p class="mt-10 color-main-gray font-md">Pequeña descripción del producto</p>
-                        <div class="row">
-                            <button class="bg-main-blue col-6">$14.07 MXN</button>
-                            <div class="mt-10 col-6 d-flex right-x center-y font-md color-main-gray">Stock:<span class="color-main-blue ml-10">15</span></div>
-                        </div>
-                    </div>
-                </div>
+                <% cont++; %>
+                <% if (cont === 4) { cont = 0; %> </div> <% }%>
+                <% });%>
             </div>
         </section>
 

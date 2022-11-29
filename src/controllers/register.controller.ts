@@ -6,19 +6,21 @@ import { artesano } from "../models/artesano"
 import { persona } from '../models/persona';
 import { transporter } from '../config/mailer'
 import { hashPassword } from '../libraries/bycript.library';
+
 import multer, { Multer } from 'multer';
 import path from "path";
+import { v4 as uuidv4 } from 'uuid';
 
 const storage = multer.diskStorage({
-    destination: path.join(__dirname, '../../uploads'),
+    destination: path.join(__dirname, '../public/img/usuarios'),
     filename: (req, file, cb) => {
-        cb(null, file.originalname);
+        cb(null, uuidv4() + path.extname(file.originalname).toLocaleLowerCase());
     }
 });
 
 export const avatarUp = multer({
     storage,
-    dest: path.join(__dirname, 'uploads'),
+    dest: path.join(__dirname, '../public/img/productos'),
     limits: { fileSize: 5000000 },
     fileFilter: (req, file, cb) => {
         const filetypes = /jpeg|jpg|png/;
@@ -29,7 +31,7 @@ export const avatarUp = multer({
         }
         cb(new Error("Error: Introduce una imagen válida"));
     }
-}).single("avatar_taller");
+}).single("avatar");
 
 /** Funciones para el renderizado de vistas: */
 
@@ -42,6 +44,14 @@ export function register_taller(req: Request, res: Response) {
 }
 
 /** Funciones aparte: */
+
+export const viewTalleres = async (req: Request, res: Response) => {
+    const talleres = await taller.findAll();
+}
+
+export const viewUsers = async (req: Request, res: Response) => {
+    const users = await usuario.findAll();
+}
 
 export const createTaller = async (req: Request, res: Response) => {
 
@@ -58,16 +68,15 @@ export const createTaller = async (req: Request, res: Response) => {
         entidad,
         idArtesano
     });
-
-
     res.send("Creando taller");
 }
 
-export const createUser = async (req: Request, res: Response) => {
-    const { tipo, avatar_artesano, avatar_administrador, puesto, email, telefono, password, nombre, p_apellido, s_apellido } = req.body;
+export const createUser = async(req:Request, res:Response)=>{
+    const{tipo,puesto,email,telefono,contra,nombre,p_apellido,s_apellido,avatar_artesano,avatar_administrador} = req.body;
+    
     const newUser = await usuario.create({
         email,
-        password: hashPassword(password),
+        password : hashPassword(contra),
         rol: tipo,
         nombre,
         primer_apellido: p_apellido,
@@ -75,23 +84,24 @@ export const createUser = async (req: Request, res: Response) => {
     });
 
 
+
     const newPerson = await persona.create({
         telefono,
         nombre,
         primer_apellido: p_apellido,
         segundo_apellido: s_apellido,
-        idUser: newUser.getDataValue("id"),
+        idUser:newUser.getDataValue("id"),
     });
 
-    if (tipo == "administrador") {
+    if (tipo=="administrador") {
         const newAdmin = await administrador.create({
-            idClientEsp: newPerson.getDataValue("idClient"),
-            avatar: avatar_administrador
+            idClientEsp:newPerson.getDataValue("idClient"),
+            avatar:req.file?.filename,
         })
-    } else if (tipo == "artesano") {
+    }else if (tipo=="artesano") {
         const newArtesano = await artesano.create({
-            idClientEsp: newPerson.getDataValue("idClient"),
-            avatar: avatar_artesano,
+            idClientEsp:newPerson.getDataValue("idClient"),
+            avatar:req.file?.filename,
             puesto
         })
     }
@@ -105,7 +115,7 @@ export const createUser = async (req: Request, res: Response) => {
         <h1>Hola ${nombre} ${p_apellido}, Haz sido añadido a SIVENART</h1>
         <p>Ahora formas parte de la web, las credenciales para tu usuario son las siguientes</p>
         <p>Email: ${email}</p>
-        <p>Contraseña: ${password}</p>
+        <p>Contraseña: ${contra}</p>
         `
     });
 
