@@ -21,8 +21,10 @@ export async function auth(req:Request, res:Response){
         if(usuarioResponse !== null){
           const contraseniaUsuario = usuarioResponse.getDataValue("password");
           if(isValidPassword(password,contraseniaUsuario)){
-            req.session.user = usuarioResponse.toJSON();
-            res.status(201).json(usuarioResponse);
+            const user = usuarioResponse.toJSON();
+            delete user.contrasenia;
+            req.session.user = user;
+            return res.redirect("/products");
           }else{
             res.status(201).json({message:"invalid user"});
           }
