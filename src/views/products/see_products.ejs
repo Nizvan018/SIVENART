@@ -60,7 +60,7 @@
                         <img src="/img/productos/<%-producto.foto%>" class="card" style="height: 200px;">
                         <p class="mt-10 color-main-gray font-md"><%- producto.descripcion %></p>
                         <div class="row-no-align end-y h-100-p">
-                            <button class="bg-main-blue col-6 font-sm">$<%- producto.precio %>MXN</button>
+                            <button id=<%-producto.codigo%> onClick="add_product(this.id, <%-producto.stock %>)" class="bg-main-blue col-6 font-sm">$<%- producto.precio %>MXN</button>
                             <div class="mt-10 pb-10 col-6 d-flex right-x center-y font-md color-main-gray">Stock:<span class="color-main-blue ml-10"><%- producto.stock %></span></div>
                         </div>
                     </div>
@@ -75,4 +75,5 @@
         </footer>
     </div>
 </body>
+<script src="/assets/js/local-storage/shopping_cart.js"></script>
 </html>

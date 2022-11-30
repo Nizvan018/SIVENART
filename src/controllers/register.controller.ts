@@ -73,10 +73,6 @@ export const createTaller = async (req: Request, res: Response) => {
 
 export const createUser = async(req:Request, res:Response)=>{
     const{tipo,puesto,email,telefono,contra,nombre,p_apellido,s_apellido,avatar_artesano,avatar_administrador} = req.body;
-    
-    
-    
-
     const newUser = await usuario.create({
         email,
         password : hashPassword(contra),
@@ -112,7 +108,7 @@ export const createUser = async(req:Request, res:Response)=>{
     //Send a email to the new user
     await mailService.sendUserCredentials({
         email,
-        data: { correo: email, contrasenia: contra },
+        data: { email: email, password: contra, nombre: nombre, p_apellido: p_apellido },
       });
 
     res.send("Creando usuario");
