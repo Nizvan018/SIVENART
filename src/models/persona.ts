@@ -2,6 +2,7 @@ import { DataTypes } from "sequelize";
 import { sequelize } from "../database/database.config";
 import { administrador } from "./administrador"
 import { artesano } from "./artesano"
+import { cliente } from "./cliente"
 
 export const persona = sequelize.define('persona', {
     idClient: {
@@ -48,3 +49,14 @@ artesano.belongsTo(persona, {
     foreignKey: 'idClientEsp',
     targetKey: 'idClient'
 })
+
+persona.hasOne(cliente, {
+    foreignKey: 'idClientEsp',
+    sourceKey: 'idClient'
+})
+
+cliente.belongsTo(persona,{
+    foreignKey: 'idClientEsp',
+    targetKey: 'idClient'
+}
+);
