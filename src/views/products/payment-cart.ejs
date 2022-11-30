@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/colors.css">
+    <link rel="stylesheet" href="/assets/css/navbar/navbar.css">
+    <link rel="stylesheet" href="/assets/css/footer/footer.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <title>SIVENART</title>
+</head>
+    <body class="bg-sand">
+        <header>
+            <%- include('../navbar') %> 
+        </header>
+        
+        <div class="half-image-bg" style="background-image: url('/img/fondo-registro.png');"></div>
+
+        <div class="transparent main-content">
+            <div class="d-flex f-space-betwen m-16">
+                <div class="d-flex f-column bg-white card-free col-8 min-w-200">
+                    <h1 class="font-xl color-main-blue mr-10">PAGO</h1>
+                    <p class="mt-10 color-main-gray">Introduzca sus datos para realizar el pago:</p>
+                    <p class="mt-10 color-main-gray">Subtotal:</p>
+                    <button>PAGAR</button>
+                </div>
+
+                <div class="d-flex f-column bg-white card-free col-4 min-w-200">
+                    <h1 class="font-xl color-main-blue mr-10 ">TUS PRODUCTOS</h1>
+                    <p class="mt-10 color-main-gray">Estos son los productos que ha seleccionado:</p>
+
+                </div>
+
+            </div>
+        </div>
+        
+        <footer>
+            <%- include('../footer') %> 
+        </footer>
+    </div>
+</body>
+</html>

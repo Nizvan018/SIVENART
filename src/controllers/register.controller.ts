@@ -4,11 +4,11 @@ import { taller } from "../models/taller"
 import { administrador } from "../models/administrador"
 import { artesano } from "../models/artesano"
 import { persona } from '../models/persona';
-import { transporter } from '../config/mailer'
 import { hashPassword } from '../libraries/bycript.library';
 
 import multer, { Multer } from 'multer';
 import path from "path";
+import * as mailService from "../services/mailer.service"
 import { v4 as uuidv4 } from 'uuid';
 
 const storage = multer.diskStorage({
@@ -73,7 +73,6 @@ export const createTaller = async (req: Request, res: Response) => {
 
 export const createUser = async(req:Request, res:Response)=>{
     const{tipo,puesto,email,telefono,contra,nombre,p_apellido,s_apellido,avatar_artesano,avatar_administrador} = req.body;
-    
     const newUser = await usuario.create({
         email,
         password : hashPassword(contra),
@@ -107,17 +106,10 @@ export const createUser = async(req:Request, res:Response)=>{
     }
 
     //Send a email to the new user
-    await transporter.sendMail({
-        from: '"Sivenart" <sivenart.notifications@gmail.com>', // sender address
-        to: email, // list of receivers
-        subject: "Nuevo registro SEVENART", // Subject line
-        html: `
-        <h1>Hola ${nombre} ${p_apellido}, Haz sido añadido a SIVENART</h1>
-        <p>Ahora formas parte de la web, las credenciales para tu usuario son las siguientes</p>
-        <p>Email: ${email}</p>
-        <p>Contraseña: ${contra}</p>
-        `
-    });
+    await mailService.sendUserCredentials({
+        email,
+        data: { email: email, password: contra, nombre: nombre, p_apellido: p_apellido },
+      });
 
     res.send("Creando usuario");
 }

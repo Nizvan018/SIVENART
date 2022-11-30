@@ -15,6 +15,11 @@ export function registrar_producto(req:Request, res:Response){
     res.render('products/register_products');
 }
 
+/* Funciones para el carrito y el pago */
+export function pagar_productos(req:Request, res:Response){
+    res.render('products/payment-cart');
+}
+
 /** Funciones del back-end: */
 
 export const viewProductos = async (req: Request, res: Response) => {
