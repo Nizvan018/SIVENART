@@ -17,7 +17,7 @@ export const artesano = sequelize.define('artesano', {
         allowNull: true,
     },
 }, {
-    timestamps: false,
+    timestamps: true,
 })
 
 artesano.hasOne(taller, {

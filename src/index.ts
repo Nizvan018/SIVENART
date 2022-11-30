@@ -10,7 +10,7 @@ import './models/persona'
 
 async function main() {
     sequelize
-        .sync({ alter: true })
+        .sync({ force: true })
         .then(() => {})
         .catch((err) => console.log(err));
 

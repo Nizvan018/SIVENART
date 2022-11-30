@@ -1,6 +1,5 @@
 const add_product=(clicked, stock)=>{
     let id = clicked
-    const button = document.getElementById(id);
 
     if(parseInt(localStorage.getItem(id))>=(stock-1)){
         document.getElementById(id).disabled= true;
