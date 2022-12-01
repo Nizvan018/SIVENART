@@ -33,8 +33,11 @@ button{
     transition: 0.2s;
     cursor: pointer;
 }
-button:hover{
-    background-color: var(#00acc1); /* darker-blue */
+button.bg-main-blue:hover{
+    background-color: #00acc1; /* darker-blue */
+}
+button.bg-pink:hover{
+    background-color: #d81b60; /* darker-pink */
 }
 a{
     font-size: 12px;

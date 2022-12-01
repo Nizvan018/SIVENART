@@ -17,7 +17,7 @@ const $puesto = document.getElementById('puesto');
 const $avatar = document.getElementById('avatar');
 /** Regex: */
 const email_regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-const telefono_regex = /^[0-9]{3}-[0-9]{3}-[0-9]{4}/;
+const telefono_regex = /^[0-9]{3} [0-9]{3} [0-9]{4}/;
 
 seccion_artesano.hidden = true;
 
@@ -59,11 +59,11 @@ $btn_registrar.addEventListener('click', () => {
 
     // Validación de campos generales:
     if(email_regex.test($email.value) && 
-    $contra.value.length >= 8 && 
+    $contra.value.trim().length >= 8 && 
     telefono_regex.test($telefono.value) &&
-    $nombre.value.length > 0 &&
-    $p_apellido.value.length > 0 &&
-    $s_apellido.value.length > 0){
+    $nombre.value.trim().length > 0 &&
+    $p_apellido.value.trim().length > 0 &&
+    $s_apellido.value.trim().length > 0){
         valido++;   
     }
 
@@ -73,7 +73,7 @@ $btn_registrar.addEventListener('click', () => {
             valido++;
         }
     } else{ //artesano:
-        if($avatar.files.length > 0 && $puesto.value.length > 0){
+        if($avatar.files.length > 0 && $puesto.value.trim().length > 0){
             valido++;
         }
     }

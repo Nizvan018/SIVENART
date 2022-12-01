@@ -8,7 +8,6 @@
     <!-- CSS -->
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/colors.css">
-    <!-- <link rel="stylesheet" href="/assets/css/navbar/navbar.css"> -->
     <link rel="stylesheet" href="/assets/css/login/login.css">
 
     <!-- Google Fonts -->
@@ -16,18 +15,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> 
     
-    <title>Login</title>
+    <title>Sing in</title>
 </head>
 <body>
-    <section class="seccion-login d-flex center-x center-y" style="background-image: url('/img/fondo_login.png'); background-size: cover;">
+    <section class="seccion-login d-flex center-x center-y" style="background-image: url('/img/fondo_singin.png'); background-size: cover;">
         <div class="tarjeta-horizontal d-flex">
             <div class="tarjeta-mitad tarjeta-cuerpo d-flex f-column center-x center-y">
-                <h1 class="color-main-blue mb-10">Login</h1>
-                <form action="/login/auth" class="d-flex f-column w-80 center-x center-y" method="POST">
-                    <input class="color-main-gray bg-light-blue" id="email" name="email" type="text" placeholder="Correo electrónico">
-                    <input class="color-main-gray bg-light-blue" id="password" name="password" type="password" placeholder="Contraseña">
-                    <a class="color-light-gray" href="">¿Olvidó la contraseña?</a>
-                    <button class="bg-main-blue" type="submit">Iniciar sesión</button>
+                <h1 class="color-pink mb-10">Sing in</h1>
+                <form action="/singin/register_client" class="d-flex f-column w-80 center-x center-y" method="POST">
+                    <input class="color-darker-gray bg-light-warning" id="email" name="email" type="text" placeholder="Correo electrónico">
+                    <input class="color-darker-gray bg-light-warning" id="contra" name="contra" type="password" placeholder="Contraseña">
+                    <a class="color-light-gray" href="">¿Ya tiene una cuenta?</a>
+                    <button id="btn_register" class="bg-pink" type="button">Registrarse</button>
                 </form>
             </div>
             <div class="tarjeta-mitad tarjeta-blur d-flex f-column center-x center-y">
@@ -37,6 +36,6 @@
         </div>
     </section>
 
-    <script src="/assets/js/materialize.min.js"></script>
+    <script src="/assets/js/singin/singin.js"></script>
 </body>
 </html>

@@ -10,6 +10,7 @@ dotenv.config();
 // Importing routes:
 import indexRoutes from './routes/index.router';
 import loginRoutes from './routes/login.router';
+import singinRoutes from './routes/singin.routes';
 import registerRoutes from './routes/register.router';
 import productsRoutes from './routes/products.router';
 
@@ -31,6 +32,7 @@ app.use(expressSession);
 // Routes:
 app.use('/', indexRoutes);
 app.use('/login', loginRoutes);
+app.use('/singin', singinRoutes);
 app.use('/register', registerRoutes);
 app.use('/products', productsRoutes);
 
