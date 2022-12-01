@@ -29,24 +29,14 @@
     <div class="main-content">
         <section class="w-100 d-flex f-column center-x center-y p-10">
             <div class="mt-10 bg-white card d-flex f-column center-x">
-                <h1 class="font-xl color-main-blue mr-10">REGISTRAR USUARIOS</h1>
-                <p class="mt-10 color-main-gray">Rellene la información solicitada a continuación para registrar nuevos usuarios en el sistema</p>
+                <h1 class="font-xl color-main-blue mr-10">REGISTRARSE</h1>
+                <p class="mt-10 color-main-gray">Rellene la información solicitada a continuación para crear su nuevo usuario en el sistema</p>
             </div>
             <form class="m-16 bg-white" action="/register/createUser" method="post" enctype="multipart/form-data">
                 <!-- Sección para los datos generales -->
                 <h2 class="color-pink mb-20">Datos generales</h2>
                 <div class="d-flex f-wrap">
                     <div class="row">
-                        <div class="d-flex f-column col-6">
-                            <label class="font-md color-main-gray mb-10" for="email">Correo electrónico:</label>
-                            <input id="email" name="email" class="bg-sand" type="text" placeholder="ejemplo@gmail.com">
-                        </div>
-                        <div class="d-flex f-column col-6">
-                            <label class="font-md color-main-gray mb-10" for="contra">Contraseña:</label>
-                            <input id="contra" name="contra" class="bg-sand" type="password" placeholder="pass123">
-                        </div>
-                    </div>
-                    <div class="row mt-10">
                         <div class="d-flex f-column col-6">
                             <label class="font-md color-main-gray mb-10" for="telefono">Teléfono:</label>
                             <input id="telefono" name="telefono" class="bg-sand" type="text" placeholder="951 123 4567">
@@ -66,23 +56,41 @@
                             <input id="s_apellido" name="s_apellido" class="bg-sand" type="text" placeholder="Escriba su apellido materno">
                         </div>
                     </div>
-                    <!-- Botones para la selección -->
-                    <p class="mt-10 d-flex center-x w-100 color-light-gray font-md">Seleccione el tipo de usuario (rol) que desea registrar:</p>
-                    <div class="d-flex center-x w-100">
-                        <button type="button" id="btn_administrador" class="bg-main-blue mr-10">Administrador</button>
-                        <button type="button" id="btn_artesano" class="bg-medium-blue color-darker-blue">Artesano</button>
-                        <input type="text" hidden name="tipo" id="tipo" value="administrador">
+                </div>
+
+                <!-- Sección para los datos de dirección -->
+                <h2 class="color-pink mt-20 mb-20">Dirección</h2>
+                <div class="d-flex f-wrap">
+                    <div class="row">
+                        <div class="d-flex f-column col-6">
+                            <label class="font-md color-main-gray mb-10" for="localidad">Localidad:</label>
+                            <input id="localidad" name="localidad" class="bg-sand" type="text" placeholder="Escriba la localidad donde reside">
+                        </div>
+                        <div class="d-flex f-column col-6">
+                            <label class="font-md color-main-gray mb-10" for="nombre">Entidad:</label>
+                            <input id="entidad" name="entidad" class="bg-sand" type="text" placeholder="Escriba la entidad donde reside">
+                        </div>
                     </div>
-                </div>
-
-                <!-- Sección para los administradores -->
-                <div id="seccion_administrador">
-                    <%- include('./register_administrador_part') %> 
-                </div>
-
-                <!-- Sección para el artesano -->
-                <div id="seccion_artesano">
-                    <%- include('./register_artesano_part') %> 
+                    <div class="row">
+                        <div class="d-flex f-column col-8">
+                            <label class="font-md color-main-gray mb-10" for="calle">Calle:</label>
+                            <input id="calle" name="calle" class="bg-sand" type="text" placeholder="Escriba la calle en donde reside">
+                        </div>
+                        <div class="d-flex f-column col-4">
+                            <label class="font-md color-main-gray mb-10" for="nombre">Número:</label>
+                            <input id="numero" name="numero" class="bg-sand" type="number" placeholder="Escriba el No. de su hogar">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="d-flex f-column col-8">
+                            <label class="font-md color-main-gray mb-10" for="colonia">Colonia:</label>
+                            <input id="colonia" name="colonia" class="bg-sand" type="text" placeholder="Escriba la colonia donde reside">
+                        </div>
+                        <div class="d-flex f-column col-4">
+                            <label class="font-md color-main-gray mb-10" for="codigo_postal">Código postal:</label>
+                            <input id="codigo_postal" name="codigo_postal" class="bg-sand" type="number" placeholder="Escriba el código postal de su hogar">
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Sección para los botones -->
@@ -98,6 +106,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="/assets/js/register/register_usuario.js"></script>
+    <script src="/assets/js/singin/register_client.js"></script>
 </body>
 </html>

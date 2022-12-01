@@ -11,10 +11,10 @@ const $categoria = document.getElementById('categoria');
 
 /** Función para validar los campos del formulario: */
 $btn_register.addEventListener('click', () => {
-    if($nombre.value.length > 0 &&
+    if($nombre.value.trim().length > 0 &&
     $imagen.files.length > 0 &&
-    $stock.value.length > 0 &&
-    $precio.value.length > 0 &&
+    $stock.value.trim().length > 0 &&
+    $precio.value.trim().length > 0 &&
     $categoria.value != 0){
         if($stock.value > 0 && $precio.value >= 5){
             $form[0].submit();
