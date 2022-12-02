@@ -72,17 +72,12 @@ export const createTaller = async (req: Request, res: Response) => {
 }
 
 export const createUser = async(req:Request, res:Response)=>{
-    const{tipo,puesto,email,telefono,contra,nombre,p_apellido,s_apellido,avatar_artesano,avatar_administrador} = req.body;
+    const{tipo,puesto,email,telefono,contra,nombre,p_apellido,s_apellido} = req.body;
     const newUser = await usuario.create({
         email,
         password : hashPassword(contra),
         rol: tipo,
-        nombre,
-        primer_apellido: p_apellido,
-        segundo_apellido: s_apellido
     });
-
-
 
     const newPerson = await persona.create({
         telefono,

@@ -10,14 +10,14 @@ dotenv.config();
 // Importing routes:
 import indexRoutes from './routes/index.router';
 import loginRoutes from './routes/login.router';
-import singinRoutes from './routes/singin.routes';
+import singinRoutes from './routes/singin.router';
 import registerRoutes from './routes/register.router';
 import productsRoutes from './routes/products.router';
 
 const app:Application = express();
 
 // Settings:
-app.set('port', process.env.PORT || 4000);
+app.set('port', process.env.PORT || 5000);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
@@ -32,7 +32,7 @@ app.use(expressSession);
 // Routes:
 app.use('/', indexRoutes);
 app.use('/login', loginRoutes);
-app.use('/singin', singinRoutes);
+app.use('/signin', singinRoutes);
 app.use('/register', registerRoutes);
 app.use('/products', productsRoutes);
 

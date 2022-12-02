@@ -8,6 +8,6 @@ export async function sendUserCredentials(params: { data: object | undefined; em
     from: process.env.MAILER_USER,
     to: email,
     html: htmlContent,
-    subject:"Nuevo registro SEVENART"
+    subject:"Nuevo registro SIVENART"
   });
 }

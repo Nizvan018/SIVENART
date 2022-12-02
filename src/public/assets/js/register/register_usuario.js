@@ -17,7 +17,7 @@ const $puesto = document.getElementById('puesto');
 const $avatar = document.getElementById('avatar');
 /** Regex: */
 const email_regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-const telefono_regex = /^[0-9]{3} [0-9]{3} [0-9]{4}/;
+const telefono_regex = /^[0-9]{3}[0-9]{3}[0-9]{4}/;
 
 seccion_artesano.hidden = true;
 

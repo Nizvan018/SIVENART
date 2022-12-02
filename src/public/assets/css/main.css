@@ -113,6 +113,9 @@ div.card-p{
 .mb-10{
     margin-bottom: 10px;
 }
+.mb-15{
+    margin-bottom: 15px;
+}
 .mb-20{
     margin-bottom: 20px;
 }
@@ -181,10 +184,19 @@ div.card-p{
     max-width: calc(((100% /12)*8) - 5px);
     width: calc(((100% /12)*8) - 5px);
 }
+.col-7{
+    max-width: calc(((100% /12)*7) - 5px);
+    width: calc(((100% /12)*7) - 5px);
+}
 .col-6{
     max-width: calc((100% / 2) - 5px);
     width: calc((100% / 2) - 5px);
 }
+.col-5{
+    max-width: calc(((100% /12)*5) - 5px);
+    width: calc(((100% /12)*5) - 5px);
+}
+
 .col-4{
     max-width: calc((100% / 3) - 5px);
     width: calc((100% / 3) - 5px);

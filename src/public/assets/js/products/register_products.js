@@ -25,3 +25,5 @@ $btn_register.addEventListener('click', () => {
         window.alert('Introduzca correctamente todos los datos');
     }
 });
+
+
