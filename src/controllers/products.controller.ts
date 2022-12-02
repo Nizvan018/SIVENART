@@ -58,7 +58,7 @@ export const createProduct = async (req: Request, res: Response) => {
         descripcion,
         precio,
         categoria,
-        idTaller:"14"
+        idTaller:"1"
     });
     res.send("Creando producto");
 }

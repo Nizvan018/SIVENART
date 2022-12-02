@@ -43,13 +43,13 @@
                         </div>
                         <div class="d-flex f-column col-6">
                             <label class="font-md color-main-gray mb-10" for="contra">Contraseña:</label>
-                            <input id="contra" name="contra" class="bg-sand" type="password" placeholder="pass123">
+                            <input id="contra" name="contra" class="bg-sand" type="password" placeholder="Contraseña (mínimo 8 caracteres)">
                         </div>
                     </div>
                     <div class="row mt-10">
                         <div class="d-flex f-column col-6">
                             <label class="font-md color-main-gray mb-10" for="telefono">Teléfono:</label>
-                            <input id="telefono" name="telefono" class="bg-sand" type="text" placeholder="951 123 4567">
+                            <input id="telefono" name="telefono" class="bg-sand" type="text" placeholder="9511234567 (sin espacios)">
                         </div>
                         <div class="d-flex f-column col-6">
                             <label class="font-md color-main-gray mb-10" for="nombre">Nombre/s:</label>
@@ -85,6 +85,14 @@
                     <%- include('./register_artesano_part') %> 
                 </div>
 
+                <div class="row mt-10">
+                    <div class="d-flex f-column col-6">
+                        <label class="font-md color-main-gray mb-10" for="avatar">Seleccione la imagen para su avatar:</label>
+                        <div class="font-md file-input bg-main-blue color-white">
+                            <input id="avatar" name="avatar" type="file">
+                        </div>
+                    </div>
+                </div>
                 <!-- Sección para los botones -->
                 <div class="mt-10 d-flex right-x">
                     <button id="btn_registrar" class="bg-main-blue" type="button">Registrar</button>
