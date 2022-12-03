@@ -39,15 +39,16 @@
                 <div class="d-flex right-x f-space-betwen">
                     <p class="mt-10 color-main-gray">Precio</p>
                 </div>
-
+                <% productos.forEach(producto => { %>
                 <div class="d-flex left-x f-space-betwen">
-                    <img src="/img/productos/01ff3686-db2e-4795-bf9c-464cfbdd1f6e.png" class="col-2 ">
+                    <img src="/img/productos/<%-producto.foto%>" class="col-2 ">
                     <div class="f-wrap">
-                        <p class="mt-10 color-main-gray">Nombre del producto</p>
-                        <p class="font-md color-main-gray">Cantidad</p>
+                        <p class="mt-10 color-main-gray">Nombre del producto: <%- producto.nombre%></p>
+                        <p class="font-md color-main-gray">Cantidad: <%- car.quantity%></p>
                     </div>
-                    <p class="mt-10 color-main-gray">Precio</p>
+                    <p class="mt-10 color-main-gray"><%- parseFloat(car.quantity) * parseFloat(producto.precio)%></p>
                 </div>
+                <% });%>
             </div>
 
             <div class="d-flex f-column bg-white card-free col-6 min-w-200">

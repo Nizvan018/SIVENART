@@ -4,6 +4,7 @@ import path from 'path';
 import dotenv from 'dotenv';
 
 import expressSession from "./middlewares/express-session.middleware";
+const cookieParser = require('cookie-parser');
 
 dotenv.config();
 
@@ -28,6 +29,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.json());
 app.use(express.urlencoded( { extended: true } ));
 app.use(expressSession);
+app.use(cookieParser());
 
 // Routes:
 app.use('/', indexRoutes);
