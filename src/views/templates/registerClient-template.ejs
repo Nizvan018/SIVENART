@@ -5,12 +5,9 @@
         </div>
         <div class="card-content">
             <h2 class="color-main-gray pb-10">Hola <span class="color-main-blue"><%=nombre%> <%=p_apellido%></span>, haz sido añadido a SIVENART</h2>
-            <p class="color-main-gray pb-10">Ahora formas parte del sistema de venta de artesanías SIVENART, las credenciales para ingresar con su usuario son las siguientes:</p>
-            <div class="d-flex pl-15 pb-5">
-                <p class="color-main-gray font-w-600 pr-5">Email:</p> <%=email%>
-            </div>
-            <div class="d-flex pl-15">
-                <p class="color-main-gray font-w-600 pr-5">Contraseña: </p> <%=password%>
+            <p class="color-main-gray pb-10">Ahora formas parte del sistema de venta de artesanías SIVENART, se confirma su registro.</p>
+            <div class="d-flex">
+                <p class="color-main-gray pl-15 pr-5 font-md font-w-600">Correo asociado:</p> <%= email %> 
             </div>
             <p class="pt-10 color-main-gray">Esperamos que su experiencia en el sistema sea de su agrado.</p>
         </div>
@@ -30,6 +27,7 @@
     .d-flex{ display:flex }
     .font-w-600{ font-weight:600 }
     .font-sm{ font-size:10px }
+    .font-md{ font-size:16px }
     .color-white{ color:white }
     .color-main-blue{ color:#00BCD4 }
     .color-main-gray{ color:#757575 }

@@ -11,3 +11,14 @@ export async function sendUserCredentials(params: { data: object | undefined; em
     subject:"Nuevo registro SIVENART"
   });
 }
+
+export async function sendClientConfirmation(params: { data: object | undefined; email: string | undefined }) {
+  const { data, email } = params;
+  const htmlContent = await ejsLibrary.renderFileHtml({ data:data || {}, file: "registerClient-template.ejs"});
+  const responseMailer = await transporter.sendMail({
+    from: process.env.MAILER_USER,
+    to: email,
+    html: htmlContent,
+    subject:"Nuevo registro SIVENART"
+  });
+}
