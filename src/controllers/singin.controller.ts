@@ -3,6 +3,7 @@ import { hashPassword } from "../libraries/bycript.library";
 import { cliente } from "../models/cliente";
 import { persona } from "../models/persona";
 import { usuario } from "../models/usuario";
+import * as mailService from '../services/mailer.service';
 
 
 /** Funciones para el renderizado de vistas: */
@@ -36,6 +37,12 @@ export const createClient = async (req: Request, res: Response) => {
         localidad,
         entidad,
     });
+
+    await mailService.sendClientConfirmation({
+        email,
+        data: { email: email, nombre: nombre, p_apellido: p_apellido }
+    });
+
     res.send("Creando cliente");
 }
 
