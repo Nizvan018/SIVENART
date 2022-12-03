@@ -45,14 +45,6 @@ export function register_taller(req: Request, res: Response) {
 
 /** Funciones aparte: */
 
-export const viewTalleres = async (req: Request, res: Response) => {
-    const talleres = await taller.findAll();
-}
-
-export const viewUsers = async (req: Request, res: Response) => {
-    const users = await usuario.findAll();
-}
-
 export const createTaller = async (req: Request, res: Response) => {
 
     const { nombre, descripcion, calle, numero, colonia, codigo_postal, localidad, entidad, idArtesano } = req.body;
