@@ -77,8 +77,12 @@ div.card-p{
     align-items: flex-end;
 }
 
+/* TEXTO */
 .text-center {
     text-align: center;
+  }
+.uppercase {
+    text-transform: uppercase;
   }
 
 /* PADDINGS */
