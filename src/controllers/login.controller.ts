@@ -32,7 +32,8 @@ export async function auth(req: Request, res: Response) {
 
   } catch (error) {
     console.log(error);
-    res.send("error")
+    res.send("error");
+
   }
 }
 

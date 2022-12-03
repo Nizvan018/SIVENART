@@ -3,6 +3,7 @@ import { producto } from "../models/producto";
 import multer, { Multer } from 'multer';
 import path from "path";
 import { v4 as uuidv4 } from 'uuid';
+import { Op } from "sequelize";
 
 /** Funciones para el renderizado de vistas: */
 
@@ -16,8 +17,16 @@ export function registrar_producto(req:Request, res:Response){
 }
 
 /* Funciones para el carrito y el pago */
-export function pagar_productos(req:Request, res:Response){
-    res.render('products/payment-cart');
+export const pagar_productos = async(req:Request, res:Response) =>{
+    let cookie_car = JSON.parse(req.cookies.car);
+    let all_products = [];
+    for(var i in cookie_car	) all_products.push({codigo: i});
+    const productos = await producto.findAll({
+        where: {
+            [Op.or]:all_products
+        }
+    });
+    res.render('products/payment-cart',{productos: productos, car: cookie_car[1]});
 }
 
 /** Funciones del back-end: */
