@@ -77,6 +77,10 @@ div.card-p{
     align-items: flex-end;
 }
 
+.text-center {
+    text-align: center;
+  }
+
 /* PADDINGS */
 .p-10{
     padding: 10px;
