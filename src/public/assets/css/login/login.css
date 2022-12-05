@@ -71,6 +71,20 @@ a{
     backdrop-filter: blur(16px);
 }
 
+.error {
+    color: #ba3939;
+    background: #ffe0e0;
+    border : 0;
+    font-weight: 500;
+    height: 36px;
+    width: 99%;
+    margin-bottom: 14px;
+    border-radius: 36px;
+    border: none;
+    outline: none;  
+    transition: 0.2s;
+  }
+
 @media(max-width: 600px){
     .tarjeta-blur{
         display: none;

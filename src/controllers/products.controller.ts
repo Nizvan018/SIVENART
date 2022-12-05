@@ -26,7 +26,7 @@ export const pagar_productos = async(req:Request, res:Response) =>{
             [Op.or]:all_products
         }
     });
-    res.render('products/payment-cart',{productos: productos, car: cookie_car[1]});
+    res.render('products/payment-cart',{productos: productos, car: cookie_car});
 }
 
 /** Funciones del back-end: */
@@ -59,6 +59,7 @@ export const imagenUp = multer({
 }).single("imagen");
 
 export const createProduct = async (req: Request, res: Response) => {
+    const user = req.session;
     const {nombre,stock,precio,descripcion,categoria } = req.body;
     const newProduct = await producto.create({
         nombre,
@@ -67,7 +68,7 @@ export const createProduct = async (req: Request, res: Response) => {
         descripcion,
         precio,
         categoria,
-        idTaller:"1"
+        idTaller:user.user?.idTaller
     });
     res.send("Creando producto");
 }
