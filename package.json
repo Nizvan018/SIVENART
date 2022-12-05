@@ -2,7 +2,7 @@
   "name": "proyecto",
   "version": "1.0.0",
   "description": "Sistema web de venta de artesanías",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "build": "tsc",
     "clean": "rimraf dist",
