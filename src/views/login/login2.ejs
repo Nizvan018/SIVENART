@@ -26,7 +26,10 @@
                 <form action="/login/auth" class="d-flex f-column w-80 center-x center-y" method="POST">
                     <input class="color-main-gray bg-light-blue" id="email" name="email" type="text" placeholder="Correo electrónico">
                     <input class="color-main-gray bg-light-blue" id="password" name="password" type="password" placeholder="Contraseña">
-                    <a class="color-light-gray" href="">¿Olvidó la contraseña?</a>
+                    <% if(msg==="error"){%>
+                        <div class="error center-x center-y d-flex"><span class="flow-text">Usuario no valido</span></div>
+                    <% }%>
+                    <a href="/signin" class="color-light-gray" href="">¿No tienes cuenta? Crea una</a>
                     <button class="bg-main-blue" type="submit">Iniciar sesión</button>
                 </form>
             </div>

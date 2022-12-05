@@ -43,6 +43,6 @@ export const createClient = async (req: Request, res: Response) => {
         data: { email: email, nombre: nombre, p_apellido: p_apellido }
     });
 
-    res.send("Creando cliente");
+    res.redirect("/products/ver/all");
 }
 

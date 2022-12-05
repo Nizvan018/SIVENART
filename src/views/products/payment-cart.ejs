@@ -44,9 +44,9 @@
                     <img src="/img/productos/<%-producto.foto%>" class="col-2 ">
                     <div class="f-wrap">
                         <p class="mt-10 color-main-gray">Nombre del producto: <%- producto.nombre%></p>
-                        <p class="font-md color-main-gray">Cantidad: <%- car.quantity%></p>
+                        <p class="font-md color-main-gray">Cantidad: <%- car[producto.codigo].quantity%></p>
                     </div>
-                    <p class="mt-10 color-main-gray"><%- parseFloat(car.quantity) * parseFloat(producto.precio)%></p>
+                    <p class="mt-10 color-main-gray"><%- parseFloat(car[producto.codigo].quantity) * parseFloat(producto.precio)%></p>
                 </div>
                 <% });%>
             </div>

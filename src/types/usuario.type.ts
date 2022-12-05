@@ -4,4 +4,5 @@ export default interface UsuarioType{
     password?:string;
     rol?:string
     token_restauracion?: string;
+    idTaller?:string
 }

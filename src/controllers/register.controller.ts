@@ -60,7 +60,7 @@ export const createTaller = async (req: Request, res: Response) => {
         entidad,
         idArtesano
     });
-    res.send("Creando taller");
+    res.redirect("/products/ver/all");
 }
 
 export const createUser = async(req:Request, res:Response)=>{
@@ -98,5 +98,5 @@ export const createUser = async(req:Request, res:Response)=>{
         data: { email: email, password: contra, nombre: nombre, p_apellido: p_apellido },
       });
 
-    res.send("Creando usuario");
+      res.redirect("/products/ver/all");
 }
