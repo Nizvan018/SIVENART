@@ -3,7 +3,7 @@ import { registrar_producto, ver_productos,imagenUp, createProduct, viewProducto
 
 const router:Router = Router();
 
-router.get('/', ver_productos);
+router.get('/ver/:categoria', ver_productos);
 router.get('/register_product', registrar_producto);
 router.get('/viewProducts',viewProductos);
 router.get('/shopping-cart', pagar_productos);

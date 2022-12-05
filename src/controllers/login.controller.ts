@@ -24,7 +24,7 @@ export async function auth(req: Request, res: Response) {
         const user = usuarioResponse.toJSON();
         delete user.contrasenia;
         req.session.user = user;
-        return res.redirect("/products");
+        return res.redirect("/products/ver/all");
       } else {
         res.status(201).json({ message: "invalid user" });
       }
