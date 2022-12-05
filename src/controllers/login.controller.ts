@@ -37,7 +37,7 @@ export async function auth(req: Request, res: Response) {
           }
         }
         req.session.user = user;
-        return res.redirect("/products");
+        return res.redirect("/products/ver/all");
       } else {
         /* res.status(201).json({ message: "invalid user" }); */
         return res.redirect("/login");

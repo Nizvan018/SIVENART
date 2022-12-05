@@ -36,6 +36,9 @@
 .color-main-gray{
     color: var(--main-gray);
 }
+.color-darker-gray{
+    color: var(--darker-gray);
+}
 .color-white{
     color: white;
 }

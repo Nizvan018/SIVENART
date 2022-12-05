@@ -4,11 +4,14 @@
   "description": "Sistema web de venta de artesanías",
   "main": "index.js",
   "scripts": {
-    "ts:node": "ts-node src/index.ts",
-    "clean": "del build",
     "build": "tsc",
-    "start": "node build/src/index",
-    "dev": "nodemon"
+    "clean": "rimraf dist",
+    "start": "npm run build && npm run copy-files && node dist/index.js",
+    "dev": "nodemon src/index.ts",
+    "init": "npm install -D -s",
+    "copy-files":"npm run copy-views && npm run copy-public",
+    "copy-views":  "copyfiles -u 1 \"./src/views/**/*.ejs\" \"dist\"",
+    "copy-public":  "copyfiles -u 1 \"./src/public/**/*.*\" \"dist\""
   },
   "keywords": [],
   "author": "",
