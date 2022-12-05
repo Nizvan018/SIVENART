@@ -45,7 +45,7 @@ export const pagar_productos = async (req: Request, res: Response) => {
 
 export const viewProductos = async (req: Request, res: Response) => {
     const productos = await producto.findAll();
-    res.send("OBTENIDOS")
+    res.redirect("/products/ver/all");
 }
 
 const storage = multer.diskStorage({
@@ -82,5 +82,5 @@ export const createProduct = async (req: Request, res: Response) => {
         categoria,
         idTaller:user.user?.idTaller
     });
-    res.send("Creando producto");
+    res.redirect("/products/ver/all");
 }
