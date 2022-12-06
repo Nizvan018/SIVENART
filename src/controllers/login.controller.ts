@@ -12,7 +12,7 @@ declare module 'express-session' {
 }
 
 export function login(req: Request, res: Response) {
-  res.render('login/login2', {msg:"good"});
+  res.render('login/login2', { msg: "good" });
 }
 
 export async function auth(req: Request, res: Response) {
@@ -25,12 +25,12 @@ export async function auth(req: Request, res: Response) {
       if (isValidPassword(password, contraseniaUsuario)) {
         const user = usuarioResponse.toJSON();
         delete user.contrasenia;
-        if(user.rol === "artesano"){
-          const personaRes = await persona.findOne({where: {idUser: user.id}});
-          if (personaRes !==null){ 
+        if (user.rol === "artesano") {
+          const personaRes = await persona.findOne({ where: { idUser: user.id } });
+          if (personaRes !== null) {
             const person = personaRes.toJSON();
-            const tallerRes = await taller.findOne({where: { idArtesano: person.idClient}});
-            if (tallerRes !==null){ 
+            const tallerRes = await taller.findOne({ where: { idArtesano: person.idClient } });
+            if (tallerRes !== null) {
               const tallerjson = tallerRes.toJSON();
               user.idTaller = tallerjson.idTaller;
             }

@@ -35,7 +35,7 @@
         <section class="w-100 d-flex f-column center-y p-10">
             <div class="mt-10 bg-white card-1200 d-flex f-column center-x">
                 <div class="row">
-                    <img class="circle-img w-100px h-100px mr-10" src="/img/fondo-registro.png" alt="">
+                    <img class="circle-img w-100px h-100px mr-10" src="/img/usuarios/<%=avatar %>" onerror="this.src='/img/usuarios/sin-foto.png'">
                     <div class="w-100">
                         <h1 class="font-xl color-main-blue mr-10"><%= person.nombre %> <%= person.primer_apellido %> <%= person.segundo_apellido %></h1>
                         <p class="mt-10 color-main-gray"><%= user.email %></p>
@@ -59,7 +59,7 @@
                         </div>
                         <!-- Campo para artesanos -->
                         <% if(user.rol == 'artesano'){ %>
-                                <%- include('./usuario_artesano_part'); %> 
+                            <%- include('./usuario_artesano_part'); %> 
                         <% } %> 
                     </div>
                 </div>
@@ -71,14 +71,21 @@
 
                 <!-- Sección de los botones: -->
                 <div class="d-flex right-x mt-10">
-                    <button class="mt-20 bg-pink" onclick="location.href='/login'">Cerrar sesión</button>
+                    <% if(user.rol == 'artesano'){ %>
+                        <button class="mt-20 bg-main-blue" onclick="location.href='/products/register_product'">Registrar Producto</button>
+                    <% } %> 
+                    <% if(user.rol == 'administrador'){ %> 
+                        <button class="mt-20 bg-main-blue" onclick="location.href='/register/register_user'">Registrar Usuarios</button>
+                    <% } %> 
+                    <button class="ml-10 mt-20 bg-pink" onclick="location.href='/login'">Cerrar sesión</button>
                 </div>
+
+                <!-- Sección para artesanos: -->
+                <% if(user.rol == 'artesano'){ %>
+                    <%- include('./artesano_productos_part');  %> 
+                <% } %> 
             </div>
         </section>
-        <!-- Footer: -->
-        <footer>
-            <%- include('../footer') %>
-        </footer>
     </div>
 </body>
 </html>

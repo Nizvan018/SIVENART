@@ -98,5 +98,5 @@ export const createUser = async(req:Request, res:Response)=>{
         data: { email: email, password: contra, nombre: nombre, p_apellido: p_apellido },
       });
 
-      res.redirect("/products/ver/all");
+      res.redirect("/information/usuario");
 }
