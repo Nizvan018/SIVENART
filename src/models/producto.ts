@@ -1,6 +1,6 @@
-import { DataType, DataTypes } from "sequelize";
+import { DataTypes } from "sequelize";
 import { sequelize } from "../database/database.config";
-import { taller } from "./taller";
+import { orden_detalle } from "./ventas/detaller_orden";
 
 export const producto = sequelize.define('producto', {
     codigo: {
@@ -29,3 +29,13 @@ export const producto = sequelize.define('producto', {
         type: DataTypes.STRING
     }
 })
+
+producto.hasMany(orden_detalle, {
+    foreignKey: 'idProducto',
+    sourceKey: 'codigo'
+});
+
+orden_detalle.belongsTo(producto, {
+    foreignKey: 'idProducto',
+    targetKey: 'codigo'
+});
