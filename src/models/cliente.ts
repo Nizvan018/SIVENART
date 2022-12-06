@@ -1,5 +1,6 @@
-import { DataTypes } from "sequelize";
+import { DataTypes, or } from "sequelize";
 import { sequelize } from "../database/database.config";
+import { orden } from "./ventas/orden";
 
 export const cliente = sequelize.define('cliente', {
     idClientEsp: {
@@ -30,3 +31,14 @@ export const cliente = sequelize.define('cliente', {
 }, {
     timestamps: true,
 })
+
+cliente.hasMany(orden, {
+    foreignKey: 'idClientEsp',
+    sourceKey: 'idClientEsp'
+});
+
+orden.belongsTo(cliente, {
+    foreignKey: 'idClientEsp',
+    targetKey: 'idClientEsp'
+});
+
