@@ -2,6 +2,7 @@ let nav_aux = document.getElementById('nav_aux');
 let option1 = document.getElementById('option1');
 let option2 = document.getElementById('option2');
 let option3 = document.getElementById('option3');
+const $shopping_cart_badget = document.getElementById("badged"); 
 
 /** Función para mostrar y ocultar la navbar auxliar */
 option3.addEventListener('click', () => {
@@ -17,4 +18,20 @@ function register_client(){
     }
 }
 
+function revisar_carrito(){
+    const cookieValue = document.cookie
+    .split('; ')
+    .find((row) => row.startsWith('car='))
+    ?.split('=')[1];
+
+    if(cookieValue){
+        let json_cart = JSON.parse(cookieValue);
+        console.log("Si hay");
+        $shopping_cart_badget.setAttribute("value", Object.keys(json_cart).length);
+    }else{
+        $shopping_cart_badget.setAttribute("value", 0);
+    }
+}
+
 register_client();
+revisar_carrito();

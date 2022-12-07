@@ -49,7 +49,7 @@
                         <p class="font-md color-main-gray">Cantidad:</p>
                         <p class="font-md color-main-gray" id="cantidad_<%-producto.id%>"><%- car[producto.codigo].quantity%></p>
                     </div>
-                    <%- subtotal+=parseFloat(car[producto.codigo].quantity) * parseFloat(producto.precio)%>
+                    <% subtotal+=parseFloat(car[producto.codigo].quantity) * parseFloat(producto.precio)%>
                     <p class="mt-10 color-main-gray" id="precio_<%-producto.id%>"><%-subtotal%></p>
                     <%total+=subtotal %>
                 </div>
@@ -101,7 +101,11 @@
                     <p class="mt-10 color-main-gray">Total:<%total%></p>
                     <input type="number" name="total" id="total" value="<%-total%>">
                     <div class="mt-10 d-flex right-x">
-                        <button id="btn_register" class="bg-main-blue" type="submit">Realizar pago</button>
+                        <% if(productos){ %>
+                            <button id="btn_register" class="bg-main-blue" type="submit">Realizar pago</button>
+                        <% }else{;%>
+                            <label class="color-main-gray mb-15 col-5" for="nombreTarjeta">No se han encontrado productos en el carrito</label>
+                        <% };%>
                     </div>
                 </form>
                 
