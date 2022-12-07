@@ -37,16 +37,21 @@
                 <h1 class="font-xl color-main-blue mr-10 ">CARRITO</h1>
                 <p class="mt-10 color-main-gray">Estos son los productos que ha seleccionado:</p>
                 <div class="d-flex right-x f-space-betwen">
-                    <p class="mt-10 color-main-gray">Precio</p>
+                    <p class="mt-10 color-main-gray">Subtotal</p>
                 </div>
+                <% let total=0; %>
                 <% productos.forEach(producto => { %>
+                    <% let subtotal=0; %>
                 <div class="d-flex left-x f-space-betwen">
                     <img src="/img/productos/<%-producto.foto%>" class="col-2 ">
                     <div class="f-wrap">
                         <p class="mt-10 color-main-gray">Nombre del producto: <%- producto.nombre%></p>
-                        <p class="font-md color-main-gray">Cantidad: <%- car[producto.codigo].quantity%></p>
+                        <p class="font-md color-main-gray">Cantidad:</p>
+                        <p class="font-md color-main-gray" id="cantidad_<%-producto.id%>"><%- car[producto.codigo].quantity%></p>
                     </div>
-                    <p class="mt-10 color-main-gray"><%- parseFloat(car[producto.codigo].quantity) * parseFloat(producto.precio)%></p>
+                    <%- subtotal+=parseFloat(car[producto.codigo].quantity) * parseFloat(producto.precio)%>
+                    <p class="mt-10 color-main-gray" id="precio_<%-producto.id%>"><%-subtotal%></p>
+                    <%total+=subtotal %>
                 </div>
                 <% });%>
             </div>
@@ -56,46 +61,50 @@
                 <p class="mt-10 color-main-gray">Rellene la información solicitada a continuación para realizar el
                     pago de sus productos</p>
 
-                <div class="d-flex f-wrap mt-20">
-                    <div class="row">
-                        <label class="color-main-gray col-5 mb-15" for="numeroTarjeta">Número de la tarjeta</label>
-                        <input id="numeroTarjeta" name="numeroTarjeta" class="bg-sand col-5" type="text"
-                            placeholder="1234-5678-8901-2345">
-                        <input id="cvv" name="cvv" class="bg-sand col-2" type="text" placeholder="CVV">
+                <form action="/products/paid" method="post">
+                    <div class="d-flex f-wrap mt-20">
+                        <div class="row">
+                            <label class="color-main-gray col-5 mb-15" for="numeroTarjeta">Número de la tarjeta</label>
+                            <input id="numeroTarjeta" name="numeroTarjeta" class="bg-sand col-5" type="text"
+                                placeholder="1234-5678-8901-2345">
+                            <input id="cvv" name="cvv" class="bg-sand col-2" type="text" placeholder="CVV">
+                        </div>
+    
+                        <div class="row">
+                            <label class="color-main-gray mb-15 col-5" for="nombreTarjeta">Nombre del
+                                dueño</label>
+                            <input id="nombreTarjeta" name="nombreTarjeta" class="bg-sand col-7" type="text"
+                                placeholder="Nombre del propietario">
+                        </div>
+    
+                        <div class="row">
+                            <label class="color-main-gray mb-15 col-5" for="fechaVencimiento">Fecha de
+                                vencimiento</label>
+                            <select id="mesVencimiento" name="mesVencimiento" class="bg-sand col-5">
+                                <option value="1">Enero</option>
+                                <option value="2">Febrero</option>
+                                <option value="3">Marzo</option>
+                                <option value="4">Abril</option>
+                                <option value="5">Mayo</option>
+                                <option value="6">Junio</option>
+                                <option value="7">Julio</option>
+                                <option value="8">Agosto</option>
+                                <option value="9">Septiembre</option>
+                                <option value="10">Octubre</option>
+                                <option value="11">Noviembre</option>
+                                <option value="12">Diciembre</option>
+                            </select>
+                            <select id="anoVencimiento" name="anoVencimiento" class="bg-sand col-2">
+                            </select>
+                        </div>
                     </div>
-
-                    <div class="row">
-                        <label class="color-main-gray mb-15 col-5" for="nombreTarjeta">Nombre del
-                            dueño</label>
-                        <input id="nombreTarjeta" name="nombreTarjeta" class="bg-sand col-7" type="text"
-                            placeholder="Nombre del propietario">
+                    <p class="mt-10 color-main-gray">Total:<%total%></p>
+                    <input type="number" name="total" id="total" value="<%total%>">
+                    <div class="mt-10 d-flex right-x">
+                        <button id="btn_register" class="bg-main-blue" type="button">Realizar pago</button>
                     </div>
-
-                    <div class="row">
-                        <label class="color-main-gray mb-15 col-5" for="fechaVencimiento">Fecha de
-                            vencimiento</label>
-                        <select id="mesVencimiento" name="mesVencimiento" class="bg-sand col-5">
-                            <option value="1">Enero</option>
-                            <option value="2">Febrero</option>
-                            <option value="3">Marzo</option>
-                            <option value="4">Abril</option>
-                            <option value="5">Mayo</option>
-                            <option value="6">Junio</option>
-                            <option value="7">Julio</option>
-                            <option value="8">Agosto</option>
-                            <option value="9">Septiembre</option>
-                            <option value="10">Octubre</option>
-                            <option value="11">Noviembre</option>
-                            <option value="12">Diciembre</option>
-                        </select>
-                        <select id="anoVencimiento" name="anoVencimiento" class="bg-sand col-2">
-                        </select>
-                    </div>
-                </div>
-                <p class="mt-10 color-main-gray">Subtotal:</p>
-                <div class="mt-10 d-flex right-x">
-                    <button id="btn_register" class="bg-main-blue" type="button">Realizar pago</button>
-                </div>
+                </form>
+                
             </div>
         </div>
     </div>
