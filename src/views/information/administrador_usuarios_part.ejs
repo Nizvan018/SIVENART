@@ -1,0 +1,18 @@
+<h2 class="color-pink mb-10">Usuarios registrados</h2>
+<p class="color-main-gray mb-20">A continuación se ecuentra la lista de todos los usuarios registrados en el sistema:</p>
+<div class="d-flex f-wrap mb-20"> 
+    <div class="row mb-10">
+        <label class="col-2 font-md font-w-600 color-main-gray">ID del usuario:</label>
+        <label class="col-7 font-md font-w-600 color-main-gray">Correo electrónico:</label>
+        <label class="col-3 font-md font-w-600 color-main-gray">Rol del usuario:</label>
+    </div>
+    <% all_users.forEach(usuario => { %> 
+        <div class="row mb-10">
+            <div class="row">
+                <p class="col-2 color-main-gray"><%= usuario.dataValues.id %></p>
+                <p class="col-7 color-main-gray"><%= usuario.dataValues.email %></p>
+                <p class="col-3 color-main-gray"><%= usuario.dataValues.rol %></p>
+            </div>
+        </div>
+    <% }); %> 
+</div>

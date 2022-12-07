@@ -75,7 +75,8 @@
                         <button class="mt-20 bg-main-blue" onclick="location.href='/products/register_product'">Registrar Producto</button>
                     <% } %> 
                     <% if(user.rol == 'administrador'){ %> 
-                        <button class="mt-20 bg-main-blue" onclick="location.href='/register/register_user'">Registrar Usuarios</button>
+                        <button class="mt-20 bg-main-blue" onclick="location.href='/register/register_taller'">Registrar Talleres</button>
+                        <button class="ml-10 mt-20 bg-main-blue" onclick="location.href='/register/register_user'">Registrar Usuarios</button>
                     <% } %> 
                     <button class="ml-10 mt-20 bg-pink" onclick="location.href='/login'">Cerrar sesión</button>
                 </div>
@@ -83,6 +84,11 @@
                 <!-- Sección para artesanos: -->
                 <% if(user.rol == 'artesano'){ %>
                     <%- include('./artesano_productos_part');  %> 
+                <% } %> 
+
+                <!-- Sección para administradores: -->
+                <% if(user.rol == 'administrador'){ %>
+                    <%- include('./administrador_usuarios_part');  %> 
                 <% } %> 
             </div>
         </section>
