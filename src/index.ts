@@ -8,7 +8,7 @@ import './models/taller.ts'
 import './models/persona'
 import './models/producto'
 import './models/ventas/orden'
-import './models/ventas/detaller_orden'
+import './models/ventas/detalle_orden'
 import './models/cliente'
 
 
@@ -19,7 +19,7 @@ async function main() {
         .catch((err) => console.log(err));
 
     await app.listen(app.get('port'));
-    console.log('Server running in http://localhost:' + app.get('port'));
+    console.log('Server running in http ://localhost:' + app.get('port'));
 }
 
 main();

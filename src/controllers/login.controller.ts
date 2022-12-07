@@ -36,6 +36,13 @@ export async function auth(req: Request, res: Response) {
             }
           }
         }
+        if (user.rol === "cliente") {
+          const personaRes = await persona.findOne({ where: { idUser: user.id } });
+          if (personaRes !== null) {
+            const person = personaRes.toJSON();
+            user.idTaller = person.idClient
+          }
+        };
         req.session.user = user;
         return res.redirect("/products/ver/all");
       } else {

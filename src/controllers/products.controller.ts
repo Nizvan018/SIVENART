@@ -29,15 +29,21 @@ export function registrar_producto(req: Request, res: Response) {
 
 /* Funciones para el carrito y el pago */
 export const pagar_productos = async (req: Request, res: Response) => {
-    let cookie_car = JSON.parse(req.cookies.car);
-    let all_products = [];
-    for (var i in cookie_car) all_products.push({ codigo: i });
-    const productos = await producto.findAll({
-        where: {
-            [Op.or]: all_products
-        }
-    });
-    res.render('products/payment-cart',{productos: productos, car: cookie_car});
+    if(req.cookies.car){
+        let cookie_car = JSON.parse(req.cookies.car);
+        let all_products = [];
+        for (var i in cookie_car) all_products.push({ codigo: i });
+        const productos = await producto.findAll({
+            where: {
+                [Op.or]: all_products
+            }
+        });
+        res.render('products/payment-cart',{productos: productos, car: cookie_car});
+    }else{
+        let cookie_car = null;
+        let productos = null;
+        res.render('products/payment-cart',{productos: productos, car: cookie_car});
+    }
 }
 
 /** Funciones del back-end: */
@@ -79,6 +85,7 @@ export const createProduct = async (req: Request, res: Response) => {
         descripcion,
         precio,
         categoria,
+        disponibilidad: true,
         idTaller:user.user?.idTaller
     });
     res.redirect("/products/ver/all");

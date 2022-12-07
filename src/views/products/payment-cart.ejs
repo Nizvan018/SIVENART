@@ -40,7 +40,7 @@
                     <p class="mt-10 color-main-gray">Subtotal</p>
                 </div>
                 <% let total=0; %>
-                <% productos.forEach(producto => { %>
+                <% if(productos)productos.forEach(producto => { %>
                     <% let subtotal=0; %>
                 <div class="d-flex left-x f-space-betwen">
                     <img src="/img/productos/<%-producto.foto%>" class="col-2 ">
@@ -99,9 +99,9 @@
                         </div>
                     </div>
                     <p class="mt-10 color-main-gray">Total:<%total%></p>
-                    <input type="number" name="total" id="total" value="<%total%>">
+                    <input type="number" name="total" id="total" value="<%-total%>">
                     <div class="mt-10 d-flex right-x">
-                        <button id="btn_register" class="bg-main-blue" type="button">Realizar pago</button>
+                        <button id="btn_register" class="bg-main-blue" type="submit">Realizar pago</button>
                     </div>
                 </form>
                 

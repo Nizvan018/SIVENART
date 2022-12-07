@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../../database/database.config";
-import { orden_detalle } from "./detaller_orden";
+import { orden_detalle } from "./detalle_orden";
 
 export const orden = sequelize.define('orden', {
     idOrden: {
@@ -12,7 +12,10 @@ export const orden = sequelize.define('orden', {
     status: {
         type: DataTypes.BOOLEAN,
         defaultValue: true,
-    }
+    },
+    total: {
+        type: DataTypes.FLOAT
+    },
 }, {
     timestamps: true,
 })

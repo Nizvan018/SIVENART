@@ -1,14 +1,15 @@
 import { Response, Request } from "express";
 import { orden } from "../models/ventas/orden";
-import { orden_detalle } from "../models/ventas/detaller_orden";
+import { orden_detalle } from "../models/ventas/detalle_orden";
 
 /* Funciones para el carrito y el pago */
 export const pago = async (req: Request, res: Response) => {
     let cookie_car = JSON.parse(req.cookies.car);
     const {total}=req.body;
     const user = req.session;
+
     const newOrden = await orden.create({
-        idClientEsp:user.user?.id,
+        idClientEsp:user.user?.idTaller,
         total
     });
 
@@ -17,8 +18,9 @@ export const pago = async (req: Request, res: Response) => {
             idOrden: newOrden.getDataValue("idOrden"),
             idProducto:i
         });
+    };
+
+    res.clearCookie("car");
+    res.redirect("/products/ver/all");
 };
-
-
-}
 
