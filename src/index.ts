@@ -19,7 +19,7 @@ async function main() {
         .catch((err) => console.log(err));
 
     await app.listen(app.get('port'));
-    console.log('Server running in http://localhost:' + app.get('port'));
+    console.log('Server running in http ://localhost:' + app.get('port'));
 }
 
 main();

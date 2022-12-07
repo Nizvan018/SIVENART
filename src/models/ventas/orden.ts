@@ -12,7 +12,10 @@ export const orden = sequelize.define('orden', {
     status: {
         type: DataTypes.BOOLEAN,
         defaultValue: true,
-    }
+    },
+    total: {
+        type: DataTypes.FLOAT
+    },
 }, {
     timestamps: true,
 })
