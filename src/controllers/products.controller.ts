@@ -85,6 +85,7 @@ export const createProduct = async (req: Request, res: Response) => {
         descripcion,
         precio,
         categoria,
+        disponibilidad: true,
         idTaller:user.user?.idTaller
     });
     res.redirect("/products/ver/all");

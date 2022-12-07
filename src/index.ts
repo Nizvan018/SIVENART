@@ -8,7 +8,7 @@ import './models/taller.ts'
 import './models/persona'
 import './models/producto'
 import './models/ventas/orden'
-import './models/ventas/detaller_orden'
+import './models/ventas/detalle_orden'
 import './models/cliente'
 
 

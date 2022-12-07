@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../../database/database.config";
-import { orden_detalle } from "./detaller_orden";
+import { orden_detalle } from "./detalle_orden";
 
 export const orden = sequelize.define('orden', {
     idOrden: {

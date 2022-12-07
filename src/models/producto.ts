@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../database/database.config";
-import { orden_detalle } from "./ventas/detaller_orden";
+import { orden_detalle } from "./ventas/detalle_orden";
 
 export const producto = sequelize.define('producto', {
     codigo: {
@@ -26,8 +26,12 @@ export const producto = sequelize.define('producto', {
         allowNull: false
     },
     categoria: {
-        type: DataTypes.STRING
-    }
+        type: DataTypes.STRING,
+    },
+    disponibilidad: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: true,
+    },
 })
 
 producto.hasMany(orden_detalle, {
