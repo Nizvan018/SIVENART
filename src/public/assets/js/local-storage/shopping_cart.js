@@ -1,3 +1,5 @@
+const $shopping_cart_badged = document.getElementById("badged"); 
+
 const add_product=(clicked, stock)=>{
     let id = clicked
     let cookie_car = getCookie("car");
@@ -20,6 +22,8 @@ const add_product=(clicked, stock)=>{
                 quantity: 1
             }
             setCookie("car", JSON.stringify(shopping_car), 1);
+            let no_articles = Object.keys(shopping_car).length
+            $shopping_cart_badged.setAttribute("value", no_articles );
         }
         
         var restore_product= getCookie(id)
@@ -34,6 +38,7 @@ const add_product=(clicked, stock)=>{
                 quantity: 1
             }
         setCookie("car", JSON.stringify(shopping_car), 1);
+        $shopping_cart_badged.setAttribute("value", 1 );
     }
 }
 
