@@ -21,7 +21,6 @@ export async function ver_productos(req: Request, res: Response) {
         });
         res.render('products/see_products', { productos,cat });
     }
-
 }
 
 export function registrar_producto(req: Request, res: Response) {
