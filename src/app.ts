@@ -15,6 +15,7 @@ import singinRoutes from './routes/singin.router';
 import registerRoutes from './routes/register.router';
 import productsRoutes from './routes/products.router';
 import informationRoutes from './routes/information.router';
+import editRoutes from './routes/edit.router';
 
 const app:Application = express();
 
@@ -39,6 +40,7 @@ app.use('/signin', singinRoutes);
 app.use('/register', registerRoutes);
 app.use('/products', productsRoutes);
 app.use('/information',informationRoutes);
+app.use('/edit', editRoutes);
 // Static files:
 app.use(express.static(path.join(__dirname, 'public')));
 

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/colors.css">
+    <link rel="stylesheet" href="/assets/css/navbar/navbar.css">
+    <link rel="stylesheet" href="/assets/css/footer/footer.css">
+    <link rel="stylesheet" href="/assets/css/register/register_form.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <title>SIVENART</title>
+</head>
+<body class="bg-sand">
+    <header>
+        <%- include('../navbar') %> 
+    </header>
+
+    <div class="half-image-bg" style="background-image: url('/img/fondo-registro.png');"></div>
+
+    <div class="transparent main-content">
+        <section class="w-100 d-flex f-column center-y p-10">
+            <div class="mt-10 bg-white card d-flex f-column center-x">
+                <h1 class="font-xl color-main-blue mr-10">EDITAR PRODUCTO</h1>
+                <p class="mt-10 color-main-gray">Modifique la información necesaria para editar el producto de su taller</p>
+            </div>
+            <form class="m-16 bg-white" action="/edit/producto/update/<%= prod.dataValues.codigo %>" method="post">
+                <!-- Sección para los datos generales -->
+                <h2 class="color-pink mb-20">Datos generales</h2>
+                <div class="d-flex f-wrap">
+                    <div class="row">
+                        <label class="font-md color-main-gray mb-10 col-6" for="nombre">Nombre:</label>
+                        <label class="font-md color-main-gray mb-10 col-6" for="descripcion">Descripción:</label>
+                    </div>
+                    <div class="row">
+                        <div class="d-flex f-column col-6">
+                            <input id="nombre" name="nombre" value="<%= prod.dataValues.nombre %>" class="bg-sand" type="text" placeholder="Escriba el nombre del producto">
+                            <label class="font-md color-main-gray mb-10" for="imagen">Seleccione la imagen para su producto:</label>
+                            <p class="color-main-gray font-w-500">No se permite modificar la imagen del producto</p>
+                        </div>
+                        <div class="d-flex col-6 h-100">
+                            <textarea class="bg-sand" name="descripcion" id="descripcion" placeholder="Escriba una pequeña descripción de su producto"><%= prod.dataValues.descripcion %></textarea>
+                        </div>
+                    </div>
+                    <div class="row mt-10">
+                        <div class="d-flex f-column col-6">
+                            <label class="font-md color-main-gray mb-10" for="stock">Stock:</label>
+                            <input id="stock" name="stock" value="<%= prod.dataValues.stock %>" class="bg-sand" type="number" min="1" placeholder="Escriba la cantidad de productos disponibles">
+                        </div>
+                        <div class="d-flex f-column col-6">
+                            <label class="font-md color-main-gray mb-10" for="precio">Precio:</label>
+                            <input id="precio" name="precio" value="<%= prod.dataValues.precio %>" class="bg-sand" type="number" step="any" min="5" placeholder="Escriba el precio del producto">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="d-flex f-column col-12">
+                            <label class="font-md color-main-gray mb-10" for="categoria">Categoría:</label>
+                            <select id="categoria" name="categoria" class="bg-sand color-main-gray">
+                                <option value="0" selected hidden>Seleccione la categoría de su producto</option>
+                                <option value="textil">Textil</option>
+                                <option value="madera">Madera</option>
+                                <option value="ceramica">Cerámica</option>
+                                <option value="otros">Otros</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sección para los botones -->
+                <div class="mt-10 d-flex right-x">
+                    <button id="btn_edit" class="bg-main-blue" type="button">Editar producto</button>
+                </div>
+            </form>
+        </section>
+
+    </div>
+
+    <script src="/assets/js/edit/edit_product.js"></script>
+</body>
+</html>
