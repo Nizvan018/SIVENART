@@ -9,4 +9,3 @@ export const orden_detalle = sequelize.define('orden_detalle', {
 }, {
     timestamps: true,
 })
-

@@ -115,7 +115,7 @@
                     <input type="number" hidden name="total" id="total" value="<%-total%>">
                     <div class="mt-10 d-flex right-x">
                         <% if(productos){ %>
-                            <button id="btn_register" class="bg-main-blue" type="submit">Realizar pago</button>
+                            <button id="btn_register" class="bg-main-blue" type="button">Realizar pago</button>
                         <% }else{;%>
                             <label class="color-main-gray mb-15 col-5" for="nombreTarjeta">No se han encontrado productos en el carrito</label>
                         <% };%>
@@ -125,8 +125,6 @@
             </div>
         </div>
     </div>
-
-    
 
     <script src="/assets/js/products/cart.js"></script>
     <script src="/assets/js/local-storage/shopping_cart.js"></script>
