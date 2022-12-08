@@ -10,7 +10,7 @@ router.get('/ver/:categoria', ver_productos);
 router.get('/register_product',authloggin,registrar_producto);
 router.get('/viewProducts',viewProductos);
 router.get('/shopping-cart',authloggin2, pagar_productos);
+router.get('/reporte-ventas', ver_reporte);
 router.post('/paid',authloggin2, pago);
 router.post('/createProduct',authloggin,imagenUp,createProduct);
-router.get('/reporte-ventas', ver_reporte);
 export default router;

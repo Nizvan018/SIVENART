@@ -7,7 +7,6 @@ export const pago = async (req: Request, res: Response) => {
     let cookie_car = JSON.parse(req.cookies.car);
     const {total}=req.body;
     const user = req.session;
-
     const newOrden = await orden.create({
         idClientEsp:user.user?.idTaller,
         total

@@ -4,8 +4,8 @@ import multer, { Multer } from 'multer';
 import path from "path";
 import { v4 as uuidv4 } from 'uuid';
 import { Op, or,QueryTypes } from "sequelize";
-import { orden_detalle } from "../models/ventas/detalle_orden";
 import { sequelize } from "../database/database.config";
+
 
 /** Funciones para el renderizado de vistas: */
 
@@ -30,9 +30,16 @@ export function registrar_producto(req: Request, res: Response) {
 }
 
 export async function ver_reporte(req: Request, res: Response) {
-    const users = await sequelize.query("SELECT * FROM `users`",);
-
-	res.render('products/reporte');
+    const artesanoId = req.session.user?.id;
+    
+    let consultaTop = 'SELECT productos.nombre, SUM(public.orden_detalles.cantidad) AS total_cantidad FROM orden_detalles INNER JOIN productos ON "idProducto" = productos.codigo INNER JOIN tallers ON productos."idTaller" = tallers."idTaller" INNER JOIN artesanos ON tallers."idArtesano" = artesanos."idClientEsp" WHERE artesanos."idClientEsp" ='+artesanoId+' GROUP BY productos.codigo ORDER BY total_cantidad DESC LIMIT 5;';
+    let consultaGanancias = 'SELECT productos.nombre, SUM(public.orden_detalles.cantidad * productos.precio) AS ganancias FROM orden_detalles INNER JOIN productos ON "idProducto" = productos.codigo INNER JOIN tallers ON productos."idTaller" = tallers."idTaller" INNER JOIN artesanos ON tallers."idArtesano" = artesanos."idClientEsp" WHERE artesanos."idClientEsp" ='+artesanoId+' GROUP BY productos.codigo ORDER BY ganancias DESC LIMIT 5;';
+    
+    const [mejores, metadata0] = await sequelize.query(consultaTop);
+    const [ganancias, metadata1] = await sequelize.query(consultaGanancias);
+    //PRODUCTO Y CANTIDAD VENDIDA
+    
+	res.render('products/reporte',{mejores, ganancias});
 }
 
 /* Funciones para el carrito y el pago */
