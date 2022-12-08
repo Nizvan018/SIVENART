@@ -7,7 +7,6 @@ export const pago = async (req: Request, res: Response) => {
     let cookie_car = JSON.parse(req.cookies.car);
     const {total}=req.body;
     const user = req.session;
-
     const newOrden = await orden.create({
         idClientEsp:user.user?.idTaller,
         total
@@ -16,7 +15,7 @@ export const pago = async (req: Request, res: Response) => {
     for (var i in cookie_car) {
         const newDetalles = await orden_detalle.create({
             idOrden: newOrden.getDataValue("idOrden"),
-            //cantidad: cookie_car[i].quantity,
+            cantidad: cookie_car[i].quantity,
             idProducto:i
         });
     };

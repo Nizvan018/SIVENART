@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/assets/css/navbar/navbar.css">
     <link rel="stylesheet" href="/assets/css/footer/footer.css">
     <link rel="stylesheet" href="/assets/css/register/register_form.css">
-
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,13 +31,43 @@
 
     <div class="transparent main-content">
         <section class="w-100 d-flex f-column center-y p-10">
-            <div class="mt-10 bg-white card-free d-flex f-column center-x col-8">
+            <div class="mt-10 bg-white card-free d-flex f-column center-x center-y col-8">
                 <h1 class="font-xl color-main-blue mr-10">Reporte de ventas</h1>
-                <p class="mt-10 color-main-gray">Este es un reporte de las ventas que se han generado en el sistema SIVENART</p>
-                <p class="mt-20 color-pink font-w-500 mb-10">5 productos más vendidos</p>
-
-                
+                <p class="mt-20 color-pink font-w-500 mb-20">Estos son tus 5 productos más vendidos en la página</p>
+                <div class="d-flex f-wrap mt-10 mb-20"> 
+                    <div class="row mb-20 text-center">
+                        <label class="col-6 font-lg font-w-600 color-main-gray">Producto</label>
+                        <label class="col-6 font-lg font-w-600 color-main-gray">Cantidad vendida</label>
+                    </div>
+                    <% mejores.forEach(orden => { %>
+                        <div class="row mb-20 text-center">
+                            <div class="row">
+                                <p class="font-md col-6 color-main-gray"> <%-orden.nombre %> </p>
+                                <p class="font-md col-6 color-main-gray"> <%-orden.total_cantidad %> </p>
+                            </div>
+                        </div>
+                        <% }); %>
+                         
             </div>
+            <div class="mt-20 bg-white d-flex f-column center-x center-y col-8">
+                <p class="mt-20 color-pink font-w-500 mb-20">Estos son los productos que generaron más ganancias</p>
+                <div class="d-flex f-wrap mt-10 mb-20"> 
+                    <div class="row mb-20 text-center">
+                        <label class="col-6 font-lg font-w-600 color-main-gray">Producto</label>
+                        <label class="col-6 font-lg font-w-600 color-main-gray">Cantidad vendida</label>
+                    </div>
+                    <% ganancias.forEach(venta => { %>
+                        <div class="row mb-20 text-center">
+                            <div class="row">
+                                <p class="font-md col-6 color-main-gray"> <%-venta.nombre %> </p>
+                                <p class="font-md col-6 color-main-gray"> <%-venta.ganancias %> </p>
+                            </div>
+                        </div>
+                        <% }); %>
+                         
+            </div>
+            
+
 
         </section>
     </div>
