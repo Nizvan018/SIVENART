@@ -4,7 +4,7 @@ import path from 'path';
 //import dotenv from 'dotenv';
 
 import expressSession from "./middlewares/express-session.middleware";
-import cookieParser from 'cookie-parser';
+const cookieParser = require('cookie-parser');
 
 //dotenv.config();
 
