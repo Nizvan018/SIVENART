@@ -2,9 +2,9 @@ import app from './app';
 import { sequelize } from './database/database.config';
 
 import './models/usuario'
-import './models/administrador.ts'
-import './models/artesano.ts'
-import './models/taller.ts'
+import './models/administrador'
+import './models/artesano'
+import './models/taller'
 import './models/persona'
 import './models/producto'
 import './models/ventas/orden'
