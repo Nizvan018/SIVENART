@@ -3,7 +3,9 @@ import { producto } from "../models/producto";
 import multer, { Multer } from 'multer';
 import path from "path";
 import { v4 as uuidv4 } from 'uuid';
-import { Op, or } from "sequelize";
+import { Op, or,QueryTypes } from "sequelize";
+import { orden_detalle } from "../models/ventas/detalle_orden";
+import { sequelize } from "../database/database.config";
 
 /** Funciones para el renderizado de vistas: */
 
@@ -25,6 +27,12 @@ export async function ver_productos(req: Request, res: Response) {
 
 export function registrar_producto(req: Request, res: Response) {
     res.render('products/register_products');
+}
+
+export async function ver_reporte(req: Request, res: Response) {
+    const users = await sequelize.query("SELECT * FROM `users`",);
+
+	res.render('products/reporte');
 }
 
 /* Funciones para el carrito y el pago */
