@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { registrar_producto, ver_productos,imagenUp, createProduct, viewProductos, pagar_productos } from '../controllers/products.controller';
+import { registrar_producto, ver_productos,imagenUp, createProduct, viewProductos, pagar_productos, ver_reporte } from '../controllers/products.controller';
 import { pago } from '../controllers/ventas.controller';
 import { createLogginMiddleware } from '../middlewares/loggin.middleware';
 const authloggin = createLogginMiddleware("artesano");
@@ -12,5 +12,5 @@ router.get('/viewProducts',viewProductos);
 router.get('/shopping-cart',authloggin2, pagar_productos);
 router.post('/paid',authloggin2, pago);
 router.post('/createProduct',authloggin,imagenUp,createProduct);
-
+router.get('/reporte-ventas', ver_reporte);
 export default router;

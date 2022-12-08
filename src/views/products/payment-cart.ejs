@@ -36,21 +36,32 @@
             <div class="d-flex f-column bg-white card-free col-6 min-w-200">
                 <h1 class="font-xl color-main-blue mr-10 ">CARRITO</h1>
                 <p class="mt-10 color-main-gray">Estos son los productos que ha seleccionado:</p>
-                <div class="d-flex right-x f-space-betwen">
+                <div class="d-flex f-space-betwen">
+                    <p class="mt-10 color-main-gray"></p>
+                    <p class="mt-10 color-main-gray">Producto</p>
                     <p class="mt-10 color-main-gray">Subtotal</p>
                 </div>
                 <% let total=0; %>
                 <% if(productos)productos.forEach(producto => { %>
                     <% let subtotal=0; %>
-                <div class="d-flex left-x f-space-betwen">
+                <div class="d-flex f-space-betwen mt-10">
                     <img src="/img/productos/<%-producto.foto%>" class="col-2 ">
-                    <div class="f-wrap">
-                        <p class="mt-10 color-main-gray">Nombre del producto: <%- producto.nombre%></p>
-                        <p class="font-md color-main-gray">Cantidad:</p>
-                        <p class="font-md color-main-gray" id="cantidad_<%-producto.id%>"><%- car[producto.codigo].quantity%></p>
+                    <div class="f-wrap col-4">
+                        <p class="mt-10 color-main-gray"><%- producto.nombre%></p>
+                        <p class="font-md color-main-gray">Cantidad: <b><%- car[producto.codigo].quantity%></b></p>
+
+                        <%if(producto.disponibilidad){%>
+                            <p class="font-md color-main-blue">Disponible</p>
+                             <%}else{%>
+                                <p class="font-md darker-pink">No disponible</p>
+                                <%}%>
                     </div>
+
                     <% subtotal+=parseFloat(car[producto.codigo].quantity) * parseFloat(producto.precio)%>
-                    <p class="mt-10 color-main-gray" id="precio_<%-producto.id%>"><%-subtotal%></p>
+                    <div class="f-wrap right-y">
+                        <p class="mt-10 color-main-gray right-y"><b><%-subtotal%></b></p>
+                        <button class="font-md color-darker-pink bg-light-warning" onclick="">Eliminar</button>
+                    </div>
                     <%total+=subtotal %>
                 </div>
                 <% });%>
@@ -98,8 +109,8 @@
                             </select>
                         </div>
                     </div>
-                    <p class="mt-10 color-main-gray">Total:<%total%></p>
-                    <input type="number" name="total" id="total" value="<%-total%>">
+                    <p class="mt-10 color-main-gray">Total: <%-total%></p>
+                    <input type="number" hidden name="total" id="total" value="<%-total%>">
                     <div class="mt-10 d-flex right-x">
                         <% if(productos){ %>
                             <button id="btn_register" class="bg-main-blue" type="submit">Realizar pago</button>
