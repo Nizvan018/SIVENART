@@ -1,5 +1,5 @@
-const session = require('express-session');
-const MemoryStore = require('memorystore')(session)
+import session from "express-session";
+const MemoryStore = require('memorystore')(session);
 
 export default session({
     name: "session-cookie",

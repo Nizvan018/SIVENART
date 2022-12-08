@@ -26,8 +26,11 @@ function revisar_carrito(){
 
     if(cookieValue){
         let json_cart = JSON.parse(cookieValue);
-        console.log("Si hay");
-        $shopping_cart_badget.setAttribute("value", Object.keys(json_cart).length);
+        let cont = 0;
+        for (var i in json_cart) {
+            cont += json_cart[i].quantity;
+        }
+        $shopping_cart_badget.setAttribute("value", cont);
     }else{
         $shopping_cart_badget.setAttribute("value", 0);
     }
