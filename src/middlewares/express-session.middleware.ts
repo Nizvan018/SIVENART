@@ -3,9 +3,6 @@ const MemoryStore = require('memorystore')(session);
 
 export default session({
     name: "session-cookie",
-    store: new MemoryStore({
-      checkPeriod: 86400000
-    }),
     secret: "secreto123",
     store: new MemoryStore({
         checkPeriod: 10 * (60 * 1000)
