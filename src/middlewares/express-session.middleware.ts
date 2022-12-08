@@ -5,5 +5,5 @@ export default session({
     secret: "secreto123",
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: false, httpOnly: true, maxAge: 1000* (60 * 1000) },
+    cookie: { secure: false, httpOnly: true, maxAge: 10* (60 * 1000) },
   })
