@@ -1,9 +1,13 @@
 import session from "express-session";
+const MemoryStore = require('memorystore')(session);
 
 export default session({
     name: "session-cookie",
+    store: new MemoryStore({
+      checkPeriod: 86400000
+    }),
     secret: "secreto123",
     resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false, httpOnly: true, maxAge: 1000* (60 * 1000) },
+    saveUninitialized: false,
+    cookie: { secure: false, httpOnly: true, maxAge: 10* (60 * 1000) },
   })
