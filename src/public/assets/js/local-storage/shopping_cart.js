@@ -1,5 +1,15 @@
 const $shopping_cart_badged = document.getElementById("badged"); 
 
+const dlt_product=(clicked, stock)=>{
+    let id = clicked
+    let cookie_car = getCookie("car");
+    let shopping_car = JSON.parse(cookie_car);
+
+    delete shopping_car[id]
+    setCookie("car", JSON.stringify(shopping_car), 1);
+    location.reload(true);
+}
+
 const add_product=(clicked, stock)=>{
     let id = clicked
     let cookie_car = getCookie("car");
@@ -15,6 +25,11 @@ const add_product=(clicked, stock)=>{
             console.log("Aumenta cantidad");
             shopping_car[id].quantity = parseInt(shopping_car[id].quantity)+1;
             setCookie("car", JSON.stringify(shopping_car), 1);
+            let cont = 0;
+            for (var i in shopping_car) {
+                cont += shopping_car[i].quantity;
+            }
+            $shopping_cart_badged.setAttribute("value", cont);
             
         }else{
             console.log("Nuevo articulo");
@@ -22,13 +37,14 @@ const add_product=(clicked, stock)=>{
                 quantity: 1
             }
             setCookie("car", JSON.stringify(shopping_car), 1);
-            let no_articles = Object.keys(shopping_car).length
-            $shopping_cart_badged.setAttribute("value", no_articles );
+            for (var i in shopping_car) {
+                cont += shopping_car[i].quantity;
+            }
+            $shopping_cart_badged.setAttribute("value", cont);
         }
         
         var restore_product= getCookie(id)
         let cont = parseInt(restore_product)+1;
-        //document.cookie = id + "=" + cont + ";" + expires + ";path=/";
     }else{
         var d = new Date();
         d.setTime(d.getTime() + (1*24*60*60*1000));

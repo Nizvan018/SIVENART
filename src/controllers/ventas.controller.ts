@@ -14,9 +14,10 @@ export const pago = async (req: Request, res: Response) => {
     });
 
     for (var i in cookie_car) {
+        console.log(cookie_car[i]);
         const newDetalles = await orden_detalle.create({
             idOrden: newOrden.getDataValue("idOrden"),
-            //cantidad: cookie_car[i].quantity,
+            cantidad: cookie_car[i].quantity,
             idProducto:i
         });
     };
