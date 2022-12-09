@@ -1,12 +1,12 @@
 import express, {Application} from 'express';
 // import morgan from 'morgan';
 import path from 'path';
-//import dotenv from 'dotenv';
+import dotenv from 'dotenv';
 
 import expressSession from "./middlewares/express-session.middleware";
 const cookieParser = require('cookie-parser');
 
-//dotenv.config();
+dotenv.config();
 
 // Importing routes:
 import indexRoutes from './routes/index.router';
