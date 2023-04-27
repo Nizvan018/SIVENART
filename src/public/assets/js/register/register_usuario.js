@@ -15,6 +15,7 @@ const $p_apellido = document.getElementById('p_apellido');
 const $s_apellido = document.getElementById('s_apellido');
 const $puesto = document.getElementById('puesto');
 const $avatar = document.getElementById('avatar');
+const $span = Array.from(document.getElementsByClassName('obligatorio'));
 /** Regex: */
 const email_regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 const telefono_regex = /^[0-9]{3}[0-9]{3}[0-9]{4}/;
@@ -82,6 +83,9 @@ $btn_registrar.addEventListener('click', () => {
     if(valido == 2){
         $form[0].submit();
     } else{
+        $span.map((x) => {
+            x.style.display = 'inline'
+        });
         window.alert('Introduzca correctamente todos los datos');
     }
 });

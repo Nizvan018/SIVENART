@@ -38,31 +38,31 @@
                 <div class="d-flex f-wrap">
                     <div class="row">
                         <div class="d-flex f-column col-6">
-                            <label class="font-md color-main-gray mb-10" for="email">Correo electrónico:</label>
+                            <label class="font-md color-main-gray mb-10" for="email">Correo electrónico: <span class="obligatorio color-darker-pink" style="display: none">*</span></label>
                             <input id="email" name="email" class="bg-sand" type="text" placeholder="ejemplo@gmail.com">
                         </div>
                         <div class="d-flex f-column col-6">
-                            <label class="font-md color-main-gray mb-10" for="contra">Contraseña:</label>
+                            <label class="font-md color-main-gray mb-10" for="contra">Contraseña: <span class="obligatorio color-darker-pink" style="display: none">*</span></label>
                             <input id="contra" name="contra" class="bg-sand" type="password" placeholder="Contraseña (mínimo 8 caracteres)">
                         </div>
                     </div>
                     <div class="row mt-10">
                         <div class="d-flex f-column col-6">
-                            <label class="font-md color-main-gray mb-10" for="telefono">Teléfono:</label>
-                            <input id="telefono" name="telefono" class="bg-sand" type="text" placeholder="9511234567 (sin espacios)">
+                            <label class="font-md color-main-gray mb-10" for="telefono">Teléfono: <span class="obligatorio color-darker-pink" style="display: none">*</span></label>
+                            <input id="telefono" name="telefono" class="bg-sand" type="text" placeholder="9511234567 (sin espacios)" maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/,'')">
                         </div>
                         <div class="d-flex f-column col-6">
-                            <label class="font-md color-main-gray mb-10" for="nombre">Nombre/s:</label>
+                            <label class="font-md color-main-gray mb-10" for="nombre">Nombre/s: <span class="obligatorio color-darker-pink" style="display: none">*</span></label>
                             <input id="nombre" name="nombre" class="bg-sand" type="text" placeholder="Escriba su/s nombre/s">
                         </div>
                     </div>
                     <div class="row mt-10">
                         <div class="d-flex f-column col-6">
-                            <label class="font-md color-main-gray mb-10" for="p_apellido">Primer apellido:</label>
+                            <label class="font-md color-main-gray mb-10" for="p_apellido">Primer apellido: <span class="obligatorio color-darker-pink" style="display: none">*</span></label>
                             <input id="p_apellido" name="p_apellido" class="bg-sand" type="text" placeholder="Escriba su apellido paterno">
                         </div>
                         <div class="d-flex f-column col-6">
-                            <label class="font-md color-main-gray mb-10" for="s_apellido">Segundo apellido:</label>
+                            <label class="font-md color-main-gray mb-10" for="s_apellido">Segundo apellido: <span class="obligatorio color-darker-pink" style="display: none">*</span></label>
                             <input id="s_apellido" name="s_apellido" class="bg-sand" type="text" placeholder="Escriba su apellido materno">
                         </div>
                     </div>
@@ -87,7 +87,7 @@
 
                 <div class="row mt-10">
                     <div class="d-flex f-column col-6">
-                        <label class="font-md color-main-gray mb-10" for="avatar">Seleccione la imagen para su avatar:</label>
+                        <label class="font-md color-main-gray mb-10" for="avatar">Seleccione la imagen para su avatar: <span class="obligatorio color-darker-pink" style="display: none">*</span></label>
                         <div class="font-md file-input bg-main-blue color-white">
                             <input id="avatar" name="avatar" type="file">
                         </div>

@@ -12,6 +12,7 @@ const $numero = document.getElementById('numero');
 const $colonia = document.getElementById('colonia');
 const $codigo_postal = document.getElementById('codigo_postal');
 const $artesano = document.getElementById('idArtesano');
+const $span = Array.from(document.getElementsByClassName('obligatorio'));
 /** Regex: */
 const cp_regex = /^[0-9]{5}/;
 
@@ -28,6 +29,9 @@ $btn_register.addEventListener('click', () => {
     $artesano.value.trim().length > 0){
         $form[0].submit();
     } else{
+        $span.map((x) => {
+            x.style.display = 'inline'
+        });
         window.alert('Introduzca correctamente todos los datos');
     }
 });
