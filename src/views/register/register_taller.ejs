@@ -74,7 +74,7 @@
                         </div>
                         <div class="d-flex f-column col-4">
                             <label class="font-md color-main-gray mb-10" for="nombre">Número: <span class="obligatorio color-darker-pink" style="display: none">*</span></label>
-                            <input id="numero" name="numero" class="bg-sand" type="number" placeholder="Escriba el No. del taller">
+                            <input id="numero" name="numero" class="bg-sand" type="number" placeholder="Escriba el No. del taller" oninput="this.value = this.value.replace(/[^0-9]/,'')">
                         </div>
                     </div>
                     <div class="row">
