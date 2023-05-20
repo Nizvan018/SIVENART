@@ -8,6 +8,7 @@ const $imagen = document.getElementById('imagen');
 const $stock = document.getElementById('stock');
 const $precio = document.getElementById('precio');
 const $categoria = document.getElementById('categoria');
+const $span = Array.from(document.getElementsByClassName('obligatorio'));
 
 /** Función para validar los campos del formulario: */
 $btn_register.addEventListener('click', () => {
@@ -20,9 +21,15 @@ $btn_register.addEventListener('click', () => {
             $form[0].submit();
         } else{
             window.alert('Introduzca correctamente todos los datos');
+            $span.map((x) => {
+                x.style.display = 'inline'
+            });
         }
     } else{
         window.alert('Introduzca correctamente todos los datos');
+        $span.map((x) => {
+            x.style.display = 'inline'
+        });
     }
 });
 

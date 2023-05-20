@@ -37,13 +37,13 @@
                 <h2 class="color-pink mb-20">Datos generales</h2>
                 <div class="d-flex f-wrap">
                     <div class="row">
-                        <label class="font-md color-main-gray mb-10 col-6" for="nombre">Nombre:</label>
-                        <label class="font-md color-main-gray mb-10 col-6" for="descripcion">Descripción:</label>
+                        <label class="font-md color-main-gray mb-10 col-6" for="nombre">Nombre: <span class="obligatorio color-darker-pink" style="display: none">*</span></label>
+                        <label class="font-md color-main-gray mb-10 col-6" for="descripcion">Descripción: <span class="obligatorio color-darker-pink" style="display: none">*</span></label>
                     </div>
                     <div class="row">
                         <div class="d-flex f-column col-6">
                             <input id="nombre" name="nombre" class="bg-sand" type="text" placeholder="Escriba el nombre del producto">
-                            <label class="font-md color-main-gray mb-10" for="imagen">Seleccione la imagen para su producto:</label>
+                            <label class="font-md color-main-gray mb-10" for="imagen">Seleccione la imagen para su producto: <span class="obligatorio color-darker-pink" style="display: none">*</span></label>
                             <div class="file-input font-md bg-main-blue color-white">
                                 <input id="imagen" name="imagen" type="file">
                             </div>
@@ -54,17 +54,17 @@
                     </div>
                     <div class="row mt-10">
                         <div class="d-flex f-column col-6">
-                            <label class="font-md color-main-gray mb-10" for="stock">Stock:</label>
+                            <label class="font-md color-main-gray mb-10" for="stock">Stock: <span class="obligatorio color-darker-pink" style="display: none">*</span></label>
                             <input id="stock" name="stock" class="bg-sand" type="number" min="1" placeholder="Escriba la cantidad de productos disponibles">
                         </div>
                         <div class="d-flex f-column col-6">
-                            <label class="font-md color-main-gray mb-10" for="precio">Precio:</label>
+                            <label class="font-md color-main-gray mb-10" for="precio">Precio: <span class="obligatorio color-darker-pink" style="display: none">*</span></label>
                             <input id="precio" name="precio" class="bg-sand" type="number" step="any" min="5" placeholder="Escriba el precio del producto">
                         </div>
                     </div>
                     <div class="row">
                         <div class="d-flex f-column col-12">
-                            <label class="font-md color-main-gray mb-10" for="categoria">Categoría:</label>
+                            <label class="font-md color-main-gray mb-10" for="categoria">Categoría: <span class="obligatorio color-darker-pink" style="display: none">*</span></label>
                             <select id="categoria" name="categoria" class="bg-sand color-main-gray">
                                 <option value="0" selected hidden>Seleccione la categoría de su producto</option>
                                 <option value="textil">Textil</option>

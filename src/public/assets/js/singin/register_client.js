@@ -23,7 +23,7 @@ const cp_regex = /^[0-9]{5}/;
 /** Función para validar la información del formulario: */
 $btn_registrar.addEventListener('click', () => {
     if(email_regex.test($email.value) &&
-    contra.value.trim().length >= 0 &&
+    contra.value.trim().length >= 8 &&
     telefono_regex.test($telefono.value) &&
     $nombre.value.trim().length > 0 &&
     $p_apellido.value.trim().length > 0 &&
