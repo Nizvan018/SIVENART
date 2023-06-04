@@ -5,7 +5,6 @@ import { administrador } from "../models/administrador"
 import { artesano } from "../models/artesano"
 import { persona } from '../models/persona';
 import { hashPassword } from '../libraries/bycript.library';
-
 import multer, { Multer } from 'multer';
 import path from "path";
 import * as mailService from "../services/mailer.service"
