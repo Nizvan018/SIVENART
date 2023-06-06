@@ -106,7 +106,7 @@
 <script>
     function addProductWithQuantity(id, stock) {
         var quantity = prompt("Ingrese la cantidad de productos a agregar:", "1");
-        if (quantity !== null && !isNaN(quantity) && quantity > 0) {
+        if (quantity !== null && !isNaN(quantity) && quantity > 0 && quantity <= stock) {
             add_product(id, stock, parseInt(quantity));
         } else {
             alert("Ingrese una cantidad válida.");
