@@ -76,9 +76,10 @@
                                                         <div class="row-no-align end-y h-100-p">
                                                             <% if(producto.stock>0){ %>
                                                                 <button id=<%-producto.codigo%>
-                                                                    onClick="add_product(this.id, <%-producto.stock %>)"
-                                                                        class="bg-main-blue col-6 font-sm">$<%-
-                                                                            producto.precio %>MXN</button>
+                                                                    class="bg-main-blue col-6 font-sm"
+                                                                    onClick="addProductWithQuantity(this.id, <%-producto.stock%>)">
+                                                                    $<%-producto.precio %>MXN
+                                                                </button>
                                                             <% } else{ %>
                                                                 <button id=<%-producto.codigo%>
                                                                     onClick="add_product(this.id, <%-producto.stock %>)"
@@ -102,5 +103,14 @@
     </div>
 </body>
 <script src="/assets/js/local-storage/shopping_cart.js"></script>
-
+<script>
+    function addProductWithQuantity(id, stock) {
+        var quantity = prompt("Ingrese la cantidad de productos a agregar:", "1");
+        if (quantity !== null && !isNaN(quantity) && quantity > 0) {
+            add_product(id, stock, parseInt(quantity));
+        } else {
+            alert("Ingrese una cantidad válida.");
+        }
+    }
+    </script>
 </html>

@@ -10,7 +10,7 @@ const dlt_product=(clicked, stock)=>{
     location.reload(true);
 }
 
-const add_product=(clicked, stock)=>{
+const add_product=(clicked, stock, quantityToAdd = 1)=>{
     let id = clicked
     let cookie_car = getCookie("car");
 
@@ -18,27 +18,22 @@ const add_product=(clicked, stock)=>{
         let shopping_car = JSON.parse(cookie_car);
 
         if(id in shopping_car){
-            if(parseInt(shopping_car[id].quantity)>=(stock-1)){
+            if(parseInt(shopping_car[id].quantity)>=(stock- quantityToAdd)){
                 document.getElementById(id).disabled= true;
             }
 
             console.log("Aumenta cantidad");
-            shopping_car[id].quantity = parseInt(shopping_car[id].quantity)+1;
+            shopping_car[id].quantity = parseInt(shopping_car[id].quantity)+ quantityToAdd;
             setCookie("car", JSON.stringify(shopping_car), 1);
-            let cont = 0;
-            for (var i in shopping_car) {
-                cont += shopping_car[i].quantity;
-            }
-            $shopping_cart_badged.setAttribute("value", cont);
-            
         }else{
             console.log("Nuevo articulo");
             shopping_car[id] =  {
-                quantity: 1
+                quantity: quantityToAdd
             }
             setCookie("car", JSON.stringify(shopping_car), 1);
+            let cont = 0;
             for (var i in shopping_car) {
-                cont += shopping_car[i].quantity;
+            cont += shopping_car[i].quantity;
             }
             $shopping_cart_badged.setAttribute("value", cont);
         }
@@ -51,10 +46,10 @@ const add_product=(clicked, stock)=>{
         var expires = "expires=" + d.toGMTString();
         let shopping_car = {}
         shopping_car[id] = {
-                quantity: 1
+                quantity: quantityToAdd
             }
         setCookie("car", JSON.stringify(shopping_car), 1);
-        $shopping_cart_badged.setAttribute("value", 1 );
+        $shopping_cart_badged.setAttribute("value", quantityToAdd);
     }
 }
 
@@ -80,7 +75,3 @@ function setCookie(name,value,exp_days) {
     var expires = "expires=" + d.toGMTString();
     document.cookie = name + "=" + value + ";" + expires + ";path=/";
 }
-
-
-
-
