@@ -14,10 +14,13 @@ $btn_register.addEventListener('click', () => {
     if(numero_tarjeta_regex.test($numero_tarjeta.value) &&
     cvv_regex.test($cvv.value) &&
     $nombre_tarjeta.value.trim().length > 0){
-        // $form[0].submit();
-        console.log('si');
+        window.alert('Compra realizada con éxito');
+        
+        setTimeout(function() {
+            $form[0].submit();
+        }, 5000);
     } else{
-        window.alert('Introduzca correctamente los datos solicitados');
+        window.alert('Introduzca correctamente los datos solicitados A');
     }
 });
 
