@@ -74,10 +74,16 @@
                                                             <%- producto.descripcion %>
                                                         </p>
                                                         <div class="row-no-align end-y h-100-p">
-                                                            <button id=<%-producto.codigo%>
-                                                                onClick="add_product(this.id, <%-producto.stock %>)"
-                                                                    class="bg-main-blue col-6 font-sm">$<%-
-                                                                        producto.precio %>MXN</button>
+                                                            <% if(producto.stock>0){ %>
+                                                                <button id=<%-producto.codigo%>
+                                                                    onClick="add_product(this.id, <%-producto.stock %>)"
+                                                                        class="bg-main-blue col-6 font-sm">$<%-
+                                                                            producto.precio %>MXN</button>
+                                                            <% } else{ %>
+                                                                <button id=<%-producto.codigo%>
+                                                                    onClick="add_product(this.id, <%-producto.stock %>)"
+                                                                        class="bg-main-gray col-6 font-sm" disabled>Agotado</button>
+                                                            <% }%>
                                                             <div
                                                                 class="mt-10 pb-10 col-6 d-flex right-x center-y font-md color-main-gray">
                                                                 Cantidad:<span class="color-main-blue ml-10">

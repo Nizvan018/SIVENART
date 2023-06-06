@@ -59,7 +59,8 @@
 
                     <% subtotal+=parseFloat(car[producto.codigo].quantity) * parseFloat(producto.precio)%>
                     <div class="f-wrap right-y">
-                        <p class="mt-10 color-main-gray right-y"><b><%-subtotal%></b></p>
+                        <p class="font-sm color-main-gray right-y"><b> Precio unitario: $<%-parseFloat(producto.precio)%></b></p>
+                        <p class="font-sm color-main-gray right-y"><b> Subtotal: $<%-subtotal%></b></p>
                         <!-- <button class="font-md color-darker-pink bg-light-warning" onclick="">Eliminar</button> -->
                         <button class="font-md color-darker-pink bg-light-warning" id=<%-producto.codigo%>
                             onClick="dlt_product(this.id, <%-producto.stock %>)">Eliminar</button>
@@ -111,7 +112,7 @@
                             </select>
                         </div>
                     </div>
-                    <p class="mt-10 color-main-gray">Total: <%-total%></p>
+                    <p class="mt-10 color-main-gray">Total: $<%-total%></p>
                     <input type="number" hidden name="total" id="total" value="<%-total%>">
                     <div class="mt-10 d-flex right-x">
                         <% if(productos){ %>
