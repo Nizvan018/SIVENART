@@ -66,9 +66,25 @@
                         <% }); %>
                          
             </div>
-            
 
-
+            <div class="mt-20 bg-white d-flex f-column center-x center-y col-8">
+                <p class="mt-20 color-pink font-w-500 mb-20">Consulta de ventas diaria</p>
+                <div class="d-flex f-wrap mt-10 mb-20"> 
+                    <div class="row mb-20 text-center">
+                        <label class="col-6 font-lg font-w-600 color-main-gray">Producto</label>
+                        <label class="col-6 font-lg font-w-600 color-main-gray">Cantidad vendida</label>
+                    </div>
+                    <% dia.forEach(venta => { %>
+                        <div class="row mb-20 text-center">
+                            <div class="row">
+                                <p class="font-md col-6 color-main-gray"> <%-venta.nombre %> </p>
+                                <p class="font-md col-6 color-main-gray"> <%-venta.total_cantidad %> </p>
+                            </div>
+                        </div>
+                        <% }); %>
+                         
+            </div>
+        
         </section>
     </div>
 </body>

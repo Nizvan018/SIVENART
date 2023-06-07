@@ -31,15 +31,18 @@ export function registrar_producto(req: Request, res: Response) {
 
 export async function ver_reporte(req: Request, res: Response) {
     const artesanoId = req.session.user?.id;
+    const fecha = "'2023-06-07'";
     
     let consultaTop = 'SELECT productos.nombre, SUM(public.orden_detalles.cantidad) AS total_cantidad FROM orden_detalles INNER JOIN productos ON "idProducto" = productos.codigo INNER JOIN tallers ON productos."idTaller" = tallers."idTaller" INNER JOIN artesanos ON tallers."idArtesano" = artesanos."idClientEsp" WHERE artesanos."idClientEsp" ='+artesanoId+' GROUP BY productos.codigo ORDER BY total_cantidad DESC LIMIT 5;';
+    let consultaDiaria = 'SELECT productos.nombre, SUM(public.orden_detalles.cantidad) AS total_cantidad FROM orden_detalles INNER JOIN productos ON "idProducto" = productos.codigo INNER JOIN tallers ON productos."idTaller" = tallers."idTaller" INNER JOIN artesanos ON tallers."idArtesano" = artesanos."idClientEsp" WHERE artesanos."idClientEsp" ='+artesanoId+' AND DATE(orden_detalles."createdAt") = '+fecha+' GROUP BY productos.codigo ORDER BY total_cantidad DESC;';
     let consultaGanancias = 'SELECT productos.nombre, SUM(public.orden_detalles.cantidad * productos.precio) AS ganancias FROM orden_detalles INNER JOIN productos ON "idProducto" = productos.codigo INNER JOIN tallers ON productos."idTaller" = tallers."idTaller" INNER JOIN artesanos ON tallers."idArtesano" = artesanos."idClientEsp" WHERE artesanos."idClientEsp" ='+artesanoId+' GROUP BY productos.codigo ORDER BY ganancias DESC LIMIT 5;';
     
     const [mejores, metadata0] = await sequelize.query(consultaTop);
     const [ganancias, metadata1] = await sequelize.query(consultaGanancias);
+    const [dia, metadata2] = await sequelize.query(consultaDiaria);
     //PRODUCTO Y CANTIDAD VENDIDA
     
-	res.render('products/reporte',{mejores, ganancias});
+	res.render('products/reporte',{mejores, ganancias, dia});
 }
 
 /* Funciones para el carrito y el pago */
