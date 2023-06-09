@@ -31,15 +31,23 @@ export function registrar_producto(req: Request, res: Response) {
 
 export async function ver_reporte(req: Request, res: Response) {
     const artesanoId = req.session.user?.id;
+    let fecha = req.params.fecha;
     
     let consultaTop = 'SELECT productos.nombre, SUM(public.orden_detalles.cantidad) AS total_cantidad FROM orden_detalles INNER JOIN productos ON "idProducto" = productos.codigo INNER JOIN tallers ON productos."idTaller" = tallers."idTaller" INNER JOIN artesanos ON tallers."idArtesano" = artesanos."idClientEsp" WHERE artesanos."idClientEsp" ='+artesanoId+' GROUP BY productos.codigo ORDER BY total_cantidad DESC LIMIT 5;';
     let consultaGanancias = 'SELECT productos.nombre, SUM(public.orden_detalles.cantidad * productos.precio) AS ganancias FROM orden_detalles INNER JOIN productos ON "idProducto" = productos.codigo INNER JOIN tallers ON productos."idTaller" = tallers."idTaller" INNER JOIN artesanos ON tallers."idArtesano" = artesanos."idClientEsp" WHERE artesanos."idClientEsp" ='+artesanoId+' GROUP BY productos.codigo ORDER BY ganancias DESC LIMIT 5;';
-    
+    let consulataVentasDiarias
+    if (fecha == "all") {
+        consulataVentasDiarias = 'SELECT cantidad, orden_detalles."createdAt", orden_detalles."idOrden", "idProducto", productos."nombre", stock, productos."descripcion", precio, total, productos."idTaller", tallers."idArtesano" from orden_detalles INNER JOIN productos ON "idProducto" = productos.codigo INNER JOIN ordens on ordens."idOrden" = orden_detalles."idOrden"  inner join tallers on productos."idTaller" = tallers."idTaller" WHERE tallers."idArtesano" ='+artesanoId;
+    }else{
+        consulataVentasDiarias = 'SELECT cantidad, orden_detalles."createdAt", orden_detalles."idOrden", "idProducto", productos."nombre", stock, productos."descripcion", precio, total, productos."idTaller", tallers."idArtesano" from orden_detalles INNER JOIN productos ON "idProducto" = productos.codigo INNER JOIN ordens on ordens."idOrden" = orden_detalles."idOrden"  inner join tallers on productos."idTaller" = tallers."idTaller" WHERE tallers."idArtesano" ='+artesanoId+ ' and DATE(orden_detalles."createdAt") = \''+fecha+'\'';
+    }
+        
     const [mejores, metadata0] = await sequelize.query(consultaTop);
     const [ganancias, metadata1] = await sequelize.query(consultaGanancias);
+    const [registro, metadata2] = await sequelize.query(consulataVentasDiarias);
     //PRODUCTO Y CANTIDAD VENDIDA
     
-	res.render('products/reporte',{mejores, ganancias});
+	res.render('products/reporte',{mejores, ganancias, registro});
 }
 
 /* Funciones para el carrito y el pago */

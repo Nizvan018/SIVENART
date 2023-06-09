@@ -66,11 +66,68 @@
                         <% }); %>
                          
             </div>
-            
-
-
+            <!--Tabla con la ventas realizadas-->
+            <div class="row" name="categorias">
+                <label for="fecha">Selecciona una fecha:</label>
+                <input type="date" id="fecha" name="fecha">
+                <button class="bg-main-blue" id="boton" onclick="redirigir()" disabled>Filtrar</button>
+                <button class="bg-main-blue" onclick="location.href='/products/reporte-ventas/all'">Ver todos</button>
+            </div>
+            <div class="mt-20 bg-white d-flex f-column center-x center-y col-12">
+                <caption>Registro de ventas</caption>
+                <table>
+                    <thead>
+                      <tr>
+                        <th class="font-sm">ID orden</th>
+                        <th class="font-sm">Fecha</th>
+                        <th class="font-sm">Producto</th>
+                        <th class="font-sm">Cantidad</th>
+                        <th class="font-sm">Descripción</th>
+                        <th class="font-sm">Precio unitario</th>
+                        <th class="font-sm">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <% registro.forEach(function(obj) { %>
+                          <tr>
+                            <td class="font-sm"><%= obj.idOrden %></td>
+                            <td class="font-sm"><%= new Date(obj.createdAt).toLocaleDateString() %></td>
+                            <td class="font-sm"><%= obj.nombre %></td>
+                            <td class="font-sm"><%= obj.cantidad %></td>
+                            <td class="font-sm"><%= obj.descripcion %></td>
+                            <td class="font-sm">$ <%= obj.precio %> MXN</td>
+                            <td class="font-sm">$ <%= obj.total %> MXN</td>
+                          </tr>
+                        <% }); %>
+                      </tbody>
+                  </table>
+            </div>
+            <!--Termina tabla con la ventas realizadas-->
         </section>
     </div>
 </body>
+<script>
+    document.getElementById('fecha').addEventListener('change', function() {
+        var fechaSeleccionada = document.getElementById('fecha').value;
+        var fechaActual = new Date().toISOString().split('T')[0];
+        
+        if (fechaSeleccionada < fechaActual) {
+        document.getElementById('boton').disabled = false;
+        } else {
+        document.getElementById('boton').disabled = true;
+        alert('Por favor, selecciona una fecha valida.');
+        }
+    });
 
+    function redirigir() {
+    var fechaSeleccionada = document.getElementById('fecha').value;
+
+    if (!fechaSeleccionada) {
+        alert('Por favor, selecciona una fecha valida.');
+    } else {
+        var url = '/products/reporte-ventas/' + fechaSeleccionada;
+        window.location.href = url;
+        }
+    }
+  </script>
 </html>
