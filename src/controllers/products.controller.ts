@@ -34,6 +34,7 @@ export async function ver_reporte(req: Request, res: Response) {
     let fecha = req.params.fecha;
     
     let consultaTop = 'SELECT productos.nombre, SUM(public.orden_detalles.cantidad) AS total_cantidad FROM orden_detalles INNER JOIN productos ON "idProducto" = productos.codigo INNER JOIN tallers ON productos."idTaller" = tallers."idTaller" INNER JOIN artesanos ON tallers."idArtesano" = artesanos."idClientEsp" WHERE artesanos."idClientEsp" ='+artesanoId+' GROUP BY productos.codigo ORDER BY total_cantidad DESC LIMIT 5;';
+    let consultaDiaria = 'SELECT productos.nombre, SUM(public.orden_detalles.cantidad) AS total_cantidad FROM orden_detalles INNER JOIN productos ON "idProducto" = productos.codigo INNER JOIN tallers ON productos."idTaller" = tallers."idTaller" INNER JOIN artesanos ON tallers."idArtesano" = artesanos."idClientEsp" WHERE artesanos."idClientEsp" ='+artesanoId+' AND DATE(orden_detalles."createdAt") = '+fecha+' GROUP BY productos.codigo ORDER BY total_cantidad DESC;';
     let consultaGanancias = 'SELECT productos.nombre, SUM(public.orden_detalles.cantidad * productos.precio) AS ganancias FROM orden_detalles INNER JOIN productos ON "idProducto" = productos.codigo INNER JOIN tallers ON productos."idTaller" = tallers."idTaller" INNER JOIN artesanos ON tallers."idArtesano" = artesanos."idClientEsp" WHERE artesanos."idClientEsp" ='+artesanoId+' GROUP BY productos.codigo ORDER BY ganancias DESC LIMIT 5;';
     let consulataVentasDiarias
     if (fecha == "all") {
